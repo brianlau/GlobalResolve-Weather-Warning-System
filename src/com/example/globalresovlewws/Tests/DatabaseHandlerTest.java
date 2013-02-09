@@ -1,16 +1,18 @@
-package com.example.globalresovlewws;
+package com.example.globalresovlewws.Tests;
 
 import static org.junit.Assert.*;
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
-
 import com.example.globalresovlewws.DatabaseHandler;
+import com.example.globalresovlewws.Weather;
+
 import org.junit.Test;
 
 public class DatabaseHandlerTest extends AndroidTestCase{
 
 	private DatabaseHandler db;
 	private Weather weather1;
+	
 	public void setUp(){
 		RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), "test_");
 		db = new DatabaseHandler(context);
@@ -20,7 +22,7 @@ public class DatabaseHandlerTest extends AndroidTestCase{
 	@Test
 	public void testAddWeather() {
 		db.addWeather(weather1);
-		db.getWeather("01:12:12");
+		assertEquals("01:12:12",db.getWeather("01:12:12"));
 	}
 	
 	public void tearDown() throws Exception{

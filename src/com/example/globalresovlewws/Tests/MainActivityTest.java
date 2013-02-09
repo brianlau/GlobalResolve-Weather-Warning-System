@@ -1,6 +1,8 @@
-package com.example.globalresovlewws;
+package com.example.globalresovlewws.Tests;
 
 import com.example.globalresovlewws.MainActivity;
+import com.example.globalresovlewws.R;
+import com.example.globalresovlewws.R.id;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;

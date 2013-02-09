@@ -1,8 +1,10 @@
-package com.example.globalresovlewws;
+package com.example.globalresovlewws.Tests;
 
 import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import com.example.globalresovlewws.Weather;
 
 public class WeatherTest {
 	private static Weather weather1;
@@ -13,6 +15,7 @@ public class WeatherTest {
 		weather1 = new Weather();
 		weather2 = new Weather();
 	}
+	
 	@Test
 	public void testConstructor() throws Exception {
 		weather1 = new Weather("12:32:01", 45.2, 78.1, 90, 78, 12);
