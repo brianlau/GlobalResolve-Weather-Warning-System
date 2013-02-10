@@ -20,9 +20,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_LAT = "Latitude";
 	private static final String KEY_LONG = "Longitude";
 	private static final String KEY_TIME = "Time";
-	private static final String KEY_MAX_TEMP = "Max. Temp";
-	private static final String KEY_MIN_TEMP = "Min. Temp";
-	private static final String KEY_CHANCE_PREC = "Chance of Precipitation";
+	private static final String KEY_MAX_TEMP = "MaxTemp";
+	private static final String KEY_MIN_TEMP = "MinTemp";
+	private static final String KEY_CHANCE_PREC = "ChanceofPrecipitation";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
@@ -30,10 +30,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		String CREATE_WEATHER_TABLE = "Create table " + TABLE_WEATHER
-				+ " Time " + KEY_TIME + "Lat" + KEY_LAT + " Long" + KEY_LONG
-				+ "MAX TEMP " + KEY_MAX_TEMP + "MINTEMP" + KEY_MIN_TEMP
-				+ "Precip Chance" + KEY_CHANCE_PREC;
+		String CREATE_WEATHER_TABLE = "CREATE TABLE " + TABLE_WEATHER + "("
+				+ KEY_TIME + " INTEGER PRIMARY KEY, " 
+				+ KEY_LAT + " TEXT, " 
+				+ KEY_LONG + " TEXT, " 
+				+ KEY_MAX_TEMP + " TEXT, " 
+				+ KEY_MIN_TEMP + " TEXT, " 
+				+ KEY_CHANCE_PREC + " TEXT" 
+				+ ");";
 		db.execSQL(CREATE_WEATHER_TABLE);
 
 	}
@@ -63,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_WEATHER,
 				new String[] { KEY_TIME, KEY_LAT, KEY_LONG, KEY_MAX_TEMP,
-						KEY_MIN_TEMP, KEY_CHANCE_PREC }, KEY_TIME + "= ?",
+						KEY_MIN_TEMP, KEY_CHANCE_PREC }, KEY_TIME + " =?",
 				new String[] { String.valueOf(time) }, null, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
@@ -80,7 +84,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public List<Weather> getAllWeather() {
 		List<Weather> weatherList = new ArrayList<Weather>();
 
-		String selectQuery = "Select from" + TABLE_WEATHER;
+		String selectQuery = "SELECT * FROM" + TABLE_WEATHER;
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
@@ -102,7 +106,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public void deleteWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(TABLE_WEATHER, KEY_TIME + " = ?",
+		db.delete(TABLE_WEATHER, KEY_TIME + "=?",
 				new String[] { String.valueOf(weather.getTime()) });
 		db.close();
 	}
