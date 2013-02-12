@@ -9,7 +9,7 @@
         android:targetSdkVersion="17" />
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.example.globalresovlewws.test" />
+        android:targetPackage="com.example.globalresovlewws" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"

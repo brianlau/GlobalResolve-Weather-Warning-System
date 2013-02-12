@@ -1,9 +1,7 @@
 package com.example.globalresovlewws.Tests;
 
-import static org.junit.Assert.*;
 import android.content.Context;
 import android.test.AndroidTestCase;
-import android.test.RenamingDelegatingContext;
 import com.example.globalresovlewws.DatabaseHandler;
 import com.example.globalresovlewws.Weather;
 
@@ -18,15 +16,27 @@ public class DatabaseHandlerTest extends AndroidTestCase{
 	public void setUp(){
 		Context context = getContext();
 		db = new DatabaseHandler(context);
-		weather1 = new Weather("011212", 57.2, 52.3, 75, 50, 50);
+		weather1 = new Weather("1", 57.2, 52.3, 75, 50, 50);
 	}
 
 	@Test
 	public void testAddWeather() {
 		db.addWeather(weather1);
-		assertEquals("011212",db.getWeather("011212"));
+		assertNotNull(db.getWeather("1"));
 	}
 	
+	@Test
+	public void testGetWeather(){
+		Weather testWeather = db.getWeather("1");
+		assertEquals(50,testWeather.getChanceOfPrecipi());
+		assertEquals("1",testWeather.getTime());
+		assertEquals(57.2,testWeather.getLatitude());
+		assertEquals(52.3,testWeather.getLongitude());
+		assertEquals(75,testWeather.getMaxTemp());
+		assertEquals(50,testWeather.getMinTemp());
+	}
+	
+	@Override
 	public void tearDown() throws Exception{
         db.close(); 
         super.tearDown();

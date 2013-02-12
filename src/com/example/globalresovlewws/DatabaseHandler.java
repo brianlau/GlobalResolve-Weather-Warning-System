@@ -27,17 +27,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public DatabaseHandler(Context context) {
 		super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
 	}
-
+/**
+ * Overridden method to create the SQLiteDatabase 
+ * Database will look like
+ * _id     |Time               |Latitude|Longitude|MaxTemp|MinTemp|ChanceofPrecipitation|
+ * 1		1200:12:20 11:12:12  52.369   53.214    52		6		56
+ * 
+ * Time is a string written in TIMESTAMP format
+ * Latitude is double type
+ * Longitude is a double type
+ * MaxTemp is an integer
+ * MinTemp is an integer
+ * ChanceofPrecipitation is an integer
+ */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_WEATHER_TABLE = "CREATE TABLE " + TABLE_WEATHER + "("
-				+ KEY_TIME + " INTEGER PRIMARY KEY, " 
-				+ KEY_LAT + " TEXT, " 
-				+ KEY_LONG + " TEXT, " 
-				+ KEY_MAX_TEMP + " TEXT, " 
-				+ KEY_MIN_TEMP + " TEXT, " 
-				+ KEY_CHANCE_PREC + " TEXT" 
-				+ ");";
+				+ "_id INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TIME
+				+ " TEXT, " + KEY_LAT + " TEXT, " + KEY_LONG + " TEXT, "
+				+ KEY_MAX_TEMP + " int not null, " + KEY_MIN_TEMP
+				+ " int not null, " + KEY_CHANCE_PREC + " int not null" + ");";
 		db.execSQL(CREATE_WEATHER_TABLE);
 
 	}
@@ -48,6 +57,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 
+	/**
+	 * addWeather method creates an entry in the SQLite database
+	 * @param weather Weather object to be added to the database
+	 */
 	public void addWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
 
@@ -62,13 +75,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.insert(TABLE_WEATHER, null, values);
 		db.close();
 	}
-
+/**
+ * Method returns a Weather object when given a time
+ * @param time String in which the weather object was recorded
+ * @return a Weather object of the corresponding time
+ */
 	public Weather getWeather(String time) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_WEATHER,
 				new String[] { KEY_TIME, KEY_LAT, KEY_LONG, KEY_MAX_TEMP,
-						KEY_MIN_TEMP, KEY_CHANCE_PREC }, KEY_TIME + " =?",
-				new String[] { String.valueOf(time) }, null, null, null, null);
+						KEY_MIN_TEMP, KEY_CHANCE_PREC, }, KEY_TIME + "=?",
+				new String[] { time }, null, null, null);
 		if (cursor != null)
 			cursor.moveToFirst();
 
