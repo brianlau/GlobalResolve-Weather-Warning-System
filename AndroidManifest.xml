@@ -29,6 +29,11 @@
             android:name="com.example.globalresovlewws.SecondScreen"
             android:label="@string/title_activity_second_screen" >
         </activity>
+        
+        <meta-data
+    android:name="com.google.android.maps.v2.API_KEY"
+    android:value="your_api_key"/>
+        
     </application>
 
 </manifest>
