@@ -1,7 +1,11 @@
 package com.example.globalresovlewws.Tests;
 
+import java.util.List;
+
 import android.content.Context;
 import android.test.AndroidTestCase;
+import android.util.Log;
+
 import com.example.globalresovlewws.DatabaseHandler;
 import com.example.globalresovlewws.Weather;
 
@@ -42,7 +46,16 @@ public class DatabaseHandlerTest extends AndroidTestCase{
 	public void testDeleteWeather(){
 		Weather testWeather = db.getWeather("57.2","52.3");
 		db.deleteWeather(testWeather);
-		db.getWeather("57.2","52.3");
+	}
+	
+	@Test
+	public void testGetAllWeather(){
+		List<Weather> allWeather = db.getAllWeather();
+		 for (Weather cn : allWeather) {
+	            String log = "Time: "+cn.getTime()+" ,Latitude: " + cn.getLatitude() + " ,Longitude: " + cn.getLongitude() + " ,MaxTemp: " + cn.getMaxTemp();
+	                // Writing Contacts to log
+	        Log.d("Name: ", log);
+		 }
 	}
 	
 	@Override

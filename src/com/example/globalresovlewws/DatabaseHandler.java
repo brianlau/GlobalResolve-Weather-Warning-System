@@ -105,7 +105,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			return null;
 		}
 	}
-
+/**
+ * Method returns a list of all weather objects in the SQLite database
+ * @return List of weather objects
+ */
 	public List<Weather> getAllWeather() {
 		List<Weather> weatherList = new ArrayList<Weather>();
 
@@ -117,18 +120,22 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		if (cursor.moveToFirst()) {
 			do {
 				Weather weather = new Weather();
-				weather.setTime(cursor.getString(0));
-				weather.setLatitude(Double.parseDouble(cursor.getString(1)));
-				weather.setLongitude(Double.parseDouble(cursor.getString(2)));
-				weather.setMaxTemp(Integer.parseInt(cursor.getString(3)));
-				weather.setMinTemp(Integer.parseInt(cursor.getString(4)));
-				weather.setChanceOfPrecipi(Integer.parseInt(cursor.getString(5)));
+				weather.setTime(cursor.getString(1));
+				weather.setLatitude(Double.parseDouble(cursor.getString(2)));
+				weather.setLongitude(Double.parseDouble(cursor.getString(3)));
+				weather.setMaxTemp(Integer.parseInt(cursor.getString(4)));
+				weather.setMinTemp(Integer.parseInt(cursor.getString(5)));
+				weather.setChanceOfPrecipi(Integer.parseInt(cursor.getString(6)));
+				weatherList.add(weather);
 			} while (cursor.moveToNext());
 		}
 		return weatherList;
 
 	}
-
+/**
+ * Deletes a specified weather object from the SQLite Database
+ * @param weather Weather object to be deleted
+ */
 	public void deleteWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(
