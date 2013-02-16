@@ -24,6 +24,7 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		DatabaseHandler db = new DatabaseHandler(this);
 	
 		final SimulateData sim = new SimulateData();
 		final int[] imageArray = { R.drawable.sunny_icon, R.drawable.night_rain };
