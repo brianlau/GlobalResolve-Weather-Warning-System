@@ -1,11 +1,11 @@
 package com.example.globalresovlewws;
 
 /**
- * 
- * @author Brian
  * Weather object that stores relevant data types of a weather
  * Includes Latitude, longitude, max temperature, minimum temperature
  * time of query and chance of precipitation
+ * @author Brian
+ * 
  */
 public class Weather {
 	

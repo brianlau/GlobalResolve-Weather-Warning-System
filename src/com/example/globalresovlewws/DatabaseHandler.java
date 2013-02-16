@@ -8,6 +8,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.*;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
@@ -27,19 +28,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public DatabaseHandler(Context context) {
 		super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
 	}
-/**
- * Overridden method to create the SQLiteDatabase 
- * Database will look like
- * _id     |Time               |Latitude|Longitude|MaxTemp|MinTemp|ChanceofPrecipitation|
- * 1		1200:12:20 11:12:12  52.369   53.214    52		6		56
- * 
- * Time is a string written in TIMESTAMP format
- * Latitude is double type
- * Longitude is a double type
- * MaxTemp is an integer
- * MinTemp is an integer
- * ChanceofPrecipitation is an integer
- */
+
+	/**
+	 * Overridden method to create the SQLiteDatabase Database will look like
+	 * _id |Time |Latitude|Longitude|MaxTemp|MinTemp|ChanceofPrecipitation| 1
+	 * 1200:12:20 11:12:12 52.369 53.214 52 6 56
+	 * 
+	 * Time is a string written in TIMESTAMP format Latitude is double type
+	 * Longitude is a double type MaxTemp is an integer MinTemp is an integer
+	 * ChanceofPrecipitation is an integer
+	 */
 	@Override
 	public void onCreate(SQLiteDatabase db) {
 		String CREATE_WEATHER_TABLE = "CREATE TABLE " + TABLE_WEATHER + "("
@@ -59,7 +57,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	/**
 	 * addWeather method creates an entry in the SQLite database
-	 * @param weather Weather object to be added to the database
+	 * 
+	 * @param weather
+	 *            Weather object to be added to the database
 	 */
 	public void addWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -75,33 +75,41 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.insert(TABLE_WEATHER, null, values);
 		db.close();
 	}
-/**
- * Method returns a Weather object when given a time
- * @param time String in which the weather object was recorded
- * @return a Weather object of the corresponding time
- */
-	public Weather getWeather(String time) {
+
+	/**
+	 * Method returns a Weather object when given a time
+	 * 
+	 * @param time
+	 *            String in which the weather object was recorded
+	 * @return a Weather object of the corresponding time
+	 */
+	public Weather getWeather(String latitude, String longitude) {
+		Weather weather;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.query(TABLE_WEATHER,
 				new String[] { KEY_TIME, KEY_LAT, KEY_LONG, KEY_MAX_TEMP,
-						KEY_MIN_TEMP, KEY_CHANCE_PREC, }, KEY_TIME + "=?",
-				new String[] { time }, null, null, null);
-		if (cursor != null)
+						KEY_MIN_TEMP, KEY_CHANCE_PREC, }, KEY_LAT + "=?"
+						+ " and " + KEY_LONG + "=?", new String[] { latitude,
+						longitude }, null, null, null);
+		if (cursor != null){
 			cursor.moveToFirst();
 
-		Weather weather = new Weather(cursor.getString(0),
+		weather = new Weather(cursor.getString(0),
 				Double.parseDouble(cursor.getString(1)),
 				Double.parseDouble(cursor.getString(2)),
 				Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor
 						.getString(4)), Integer.parseInt(cursor.getString(5)));
 		return weather;
-
+		}
+		else{
+			return null;
+		}
 	}
 
 	public List<Weather> getAllWeather() {
 		List<Weather> weatherList = new ArrayList<Weather>();
 
-		String selectQuery = "SELECT * FROM" + TABLE_WEATHER;
+		String selectQuery = "SELECT * FROM " + TABLE_WEATHER;
 
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor cursor = db.rawQuery(selectQuery, null);
@@ -123,8 +131,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	public void deleteWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.delete(TABLE_WEATHER, KEY_TIME + "=?",
-				new String[] { String.valueOf(weather.getTime()) });
+		db.delete(
+				TABLE_WEATHER,
+				KEY_LAT + " = ?" + " and " + KEY_LONG + " = ?",
+				new String[] { String.valueOf(weather.getLatitude()),
+						String.valueOf(weather.getLongitude()) });
 		db.close();
 	}
+
 }

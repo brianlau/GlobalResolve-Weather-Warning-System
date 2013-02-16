@@ -11,10 +11,11 @@ public class DatabaseHandlerTest extends AndroidTestCase{
 
 	private DatabaseHandler db;
 	private Weather weather1;
-	
+	private Context context;
 	@Override
-	public void setUp(){
-		Context context = getContext();
+	public void setUp() throws Exception{
+		super.setUp();
+		context = getContext();
 		db = new DatabaseHandler(context);
 		weather1 = new Weather("1", 57.2, 52.3, 75, 50, 50);
 	}
@@ -22,23 +23,32 @@ public class DatabaseHandlerTest extends AndroidTestCase{
 	@Test
 	public void testAddWeather() {
 		db.addWeather(weather1);
-		assertNotNull(db.getWeather("1"));
+		db.addWeather(new Weather("12", 65.3,86.2,100,87,50));
+		assertNotNull(db.getWeather("57.2","52.3"));
 	}
 	
 	@Test
 	public void testGetWeather(){
-		Weather testWeather = db.getWeather("1");
+		Weather testWeather = db.getWeather("65.3","86.2");
 		assertEquals(50,testWeather.getChanceOfPrecipi());
-		assertEquals("1",testWeather.getTime());
-		assertEquals(57.2,testWeather.getLatitude());
-		assertEquals(52.3,testWeather.getLongitude());
-		assertEquals(75,testWeather.getMaxTemp());
-		assertEquals(50,testWeather.getMinTemp());
+		assertEquals("12",testWeather.getTime());
+		assertEquals(65.3,testWeather.getLatitude());
+		assertEquals(86.2,testWeather.getLongitude());
+		assertEquals(100,testWeather.getMaxTemp());
+		assertEquals(87,testWeather.getMinTemp());
+	}
+	
+	@Test
+	public void testDeleteWeather(){
+		Weather testWeather = db.getWeather("57.2","52.3");
+		db.deleteWeather(testWeather);
+		db.getWeather("57.2","52.3");
 	}
 	
 	@Override
 	public void tearDown() throws Exception{
-        db.close(); 
+		db.close();
+        context.deleteDatabase(""+db.getWritableDatabase());
         super.tearDown();
     }
 
