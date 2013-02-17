@@ -74,6 +74,7 @@ public class MainActivity extends Activity {
 		};
 		handler.postDelayed(runnable, 2000); // for initial delay..
 		Button btnDockedMode = (Button) findViewById(R.id.button1);
+		Button btnMapView = (Button) findViewById(R.id.buttonMapView);
 
 		btnDockedMode.setOnClickListener(new View.OnClickListener() {
 
@@ -85,7 +86,19 @@ public class MainActivity extends Activity {
 				handler.removeCallbacks(runnable);
 				finish();
 			}}
-		);}
+		);
+		
+		btnMapView.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent mapScreen = new Intent(getApplicationContext(), MapScreen.class);
+				startActivity(mapScreen);
+				handler.removeCallbacks(runnable);
+				finish();
+			}
+		});
+	}
 
 	@Override 
 	public void onPause(){
