@@ -45,6 +45,11 @@
             android:label="@string/title_activity_second_screen" >
         </activity>
         
+        <activity
+            android:name="com.example.globalresovlewws.MapScreen"
+            android:label="@string/title_activity_map_screen" >
+        </activity>
+        
         <meta-data
     android:name="com.google.android.maps.v2.API_KEY"
     android:value="F0:C8:30:3D:A0:46:B3:3F:AA:5C:2F:CF:F6:6D:E1:47:6B:15:0E:8A"/>
