@@ -7,8 +7,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.*;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
-import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
