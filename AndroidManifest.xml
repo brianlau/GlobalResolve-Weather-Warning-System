@@ -49,6 +49,7 @@
             android:name="com.example.globalresovlewws.MapScreen"
             android:label="@string/title_activity_map_screen" >
             
+            
         </activity>
         
         <meta-data
