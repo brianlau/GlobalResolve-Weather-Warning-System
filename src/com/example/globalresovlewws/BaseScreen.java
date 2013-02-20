@@ -14,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Handler;
 
-public class MainActivity extends Activity {
+public class BaseScreen extends Activity {
 //	MediaPlayer mp = new MediaPlayer();
 //	AssetFileDescriptor siren;
 //	boolean flag = false;
@@ -26,6 +26,8 @@ public class MainActivity extends Activity {
 		
 		//Opens a database on the Android device
 		DatabaseHandler db = new DatabaseHandler(this);
+		
+		db.addWeather(new Weather("12", 65.3, 86.2, 100, 87, 50));
 	
 		final SimulateData sim = new SimulateData();
 		final int[] imageArray = { R.drawable.sunny_icon, R.drawable.night_rain };
