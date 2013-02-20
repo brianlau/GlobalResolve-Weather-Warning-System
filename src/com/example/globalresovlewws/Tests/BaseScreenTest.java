@@ -1,6 +1,6 @@
 package com.example.globalresovlewws.Tests;
 
-import com.example.globalresovlewws.MainActivity;
+import com.example.globalresovlewws.BaseScreen;
 import com.example.globalresovlewws.R;
 import com.example.globalresovlewws.R.id;
 
@@ -9,17 +9,17 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivityTest extends
-		ActivityInstrumentationTestCase2<MainActivity> {
+public class BaseScreenTest extends
+		ActivityInstrumentationTestCase2<BaseScreen> {
 
-	private MainActivity mActivity;
+	private BaseScreen mActivity;
 	private Button myButton;
 	private ImageView mImageView;
 	private TextView mTextView;
 	public static final boolean INITIAL_POSITION = false;
 
-	public MainActivityTest() {
-		super("com.example.globalresovlewws", MainActivity.class);
+	public BaseScreenTest() {
+		super("com.example.globalresovlewws", BaseScreen.class);
 	}
 
 	@Override

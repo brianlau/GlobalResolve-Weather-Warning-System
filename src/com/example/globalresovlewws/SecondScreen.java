@@ -21,7 +21,7 @@ public class SecondScreen extends Activity {
 		
 		@Override
 		public void onClick(View v) {
-			Intent deployedScreen = new Intent(getApplicationContext(), MainActivity.class );
+			Intent deployedScreen = new Intent(getApplicationContext(), BaseScreen.class );
 
 			startActivity(deployedScreen);
 			finish();

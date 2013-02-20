@@ -32,7 +32,7 @@
         android:theme="@style/AppTheme" >
         <uses-library android:name="android.test.runner" />
         <activity
-            android:name="com.example.globalresovlewws.MainActivity"
+            android:name="com.example.globalresovlewws.BaseScreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
