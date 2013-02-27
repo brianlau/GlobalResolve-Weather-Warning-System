@@ -1,6 +1,8 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
 
 //import android.app.Activity;
+import com.globalresolvewws.R;
+
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 

@@ -1,4 +1,4 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
 
 //dummyTemperature Class
 public class SimulateData {

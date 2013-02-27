@@ -1,8 +1,9 @@
-package com.example.globalresovlewws.test;
+package com.globalresolvewws.test;
 
-import com.example.globalresovlewws.BaseScreen;
-import com.example.globalresovlewws.R;
-import com.example.globalresovlewws.R.id;
+import com.globalresolvewws.R;
+import com.globalresolvewws.R.id;
+import com.globalresolvewws.BaseScreen;
+
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -28,11 +29,11 @@ public class BaseScreenTest extends
 
 		mActivity = getActivity();
 		myButton = (Button) mActivity
-				.findViewById(com.example.globalresovlewws.R.id.button1);
+				.findViewById(com.globalresolvewws.R.id.button1);
 		mImageView = (ImageView) mActivity
-				.findViewById(com.example.globalresovlewws.R.id.imageView);
+				.findViewById(com.globalresolvewws.R.id.imageView);
 		mTextView = (TextView) mActivity
-				.findViewById(com.example.globalresovlewws.R.id.temp_curr);
+				.findViewById(com.globalresolvewws.R.id.temp_curr);
 	}
 
 	public void testPresetUp() {

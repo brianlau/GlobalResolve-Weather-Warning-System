@@ -1,10 +1,11 @@
-package com.example.globalresovlewws.test;
+package com.globalresolvewws.test;
 
 import java.util.List;
 import android.content.Context;
 import android.test.AndroidTestCase;
-import com.example.globalresovlewws.DatabaseHandler;
-import com.example.globalresovlewws.Weather;
+
+import com.globalresolvewws.DatabaseHandler;
+import com.globalresolvewws.Weather;
 
 import org.junit.Test;
 

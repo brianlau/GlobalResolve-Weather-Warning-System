@@ -1,6 +1,9 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
 
 import java.io.IOException;
+
+import com.globalresolvewws.R;
+
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;

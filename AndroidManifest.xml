@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.globalresovlewws"
+    package="com.globalresolvewws"
     android:versionCode="1"
     android:versionName="1.0" >
     
     <permission
           android:name="com.example.globalresolvewws.permission.MAPS_RECEIVE"
           android:protectionLevel="signature"/>
-        <uses-permission android:name="com.example.globalresolvewws.permission.MAPS_RECEIVE"/>
+        <uses-permission android:name="com.globalresolvewws.permission.MAPS_RECEIVE"/>
 	
 	<uses-permission android:name="android.permission.INTERNET"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -24,7 +24,7 @@
         android:targetSdkVersion="17" />
     <instrumentation
         android:name="android.test.InstrumentationTestRunner"
-        android:targetPackage="com.example.globalresovlewws" />
+        android:targetPackage="com.globalresolvewws" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -32,7 +32,7 @@
         android:theme="@style/AppTheme" >
         <uses-library android:name="android.test.runner" />
         <activity
-            android:name="com.example.globalresovlewws.BaseScreen"
+            android:name="com.globalresolvewws.BaseScreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,12 +41,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.globalresovlewws.SecondScreen"
+            android:name="com.globalresolvewws.SecondScreen"
             android:label="@string/title_activity_second_screen" >
         </activity>
         
         <activity
-            android:name="com.example.globalresovlewws.MapScreen"
+            android:name="com.globalresolvewws.MapScreen"        
             android:label="@string/title_activity_map_screen" >
         </activity>
         

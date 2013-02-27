@@ -1,4 +1,4 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
 
 import java.util.ArrayList;
 import java.util.List;

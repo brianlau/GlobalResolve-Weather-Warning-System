@@ -1,4 +1,4 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
 
 /**
  * Weather object that stores relevant data types of a weather

@@ -1,4 +1,6 @@
-package com.example.globalresovlewws;
+package com.globalresolvewws;
+
+import com.globalresolvewws.R;
 
 import android.os.Bundle;
 import android.app.Activity;

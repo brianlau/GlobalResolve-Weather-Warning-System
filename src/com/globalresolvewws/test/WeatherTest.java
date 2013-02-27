@@ -1,10 +1,11 @@
-package com.example.globalresovlewws.test;
+package com.globalresolvewws.test;
 
 
 import junit.framework.TestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import com.example.globalresovlewws.Weather;
+
+import com.globalresolvewws.Weather;
 
 public class WeatherTest extends TestCase {
 	private static Weather weather1;
