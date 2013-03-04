@@ -43,10 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.globalresolvewws.SecondScreen"
-            android:label="@string/title_activity_second_screen" >
-        </activity>
         
         <activity
             android:name="com.globalresolvewws.MapScreen"        

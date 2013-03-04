@@ -1,16 +1,18 @@
 package com.globalresolvewws;
 
-import java.io.IOException;
-
+import java.util.Set;
 import com.globalresolvewws.R;
-
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.AssetFileDescriptor;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,20 +24,61 @@ public class BaseScreen extends Activity {
 	// MediaPlayer mp = new MediaPlayer();
 	// AssetFileDescriptor siren;
 	// boolean flag = false;
+	ArrayAdapter mAA;
+	BluetoothAdapter mbtA;
+	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+		public void onReceive(Context context, Intent intent) {
+			String action = intent.getAction();
+			// When discovery finds a device
+			if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+				// Get the BluetoothDevice object from the Intent
+				BluetoothDevice device = intent
+						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+				// Add the name and address to an array adapter to show in a
+				// ListView
+				mAA.add(device.getName() + "\n" + device.getAddress());
+			}
+		}
+	};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		BluetoothAdapter mbtA = BluetoothAdapter.getDefaultAdapter();
-		int REQUEST_ENABLE_BT = 1;
+		// Bluetooth adapter
+		mbtA = BluetoothAdapter.getDefaultAdapter();
 		if (mbtA != null) {
 			if (!mbtA.isEnabled()) {
-				Intent enableBtIntent = new Intent(
-						BluetoothAdapter.ACTION_REQUEST_ENABLE);
-				startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
+				Intent discoverableIntent = new Intent(
+						BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
+				discoverableIntent.putExtra(
+						BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 120);
+				startActivity(discoverableIntent);
 			}
+			Set<BluetoothDevice> pairedDevices = mbtA.getBondedDevices(); // Gets
+																			// list
+																			// of
+																			// bonded
+																			// devices
+			// If there are paired devices
+			if (pairedDevices.size() > 0) {
+				// Loop through paired devices
+				for (BluetoothDevice device : pairedDevices) {
+					// Add the name and address to an array adapter to show in a
+					// ListView
+					mAA.add(device.getName() + "\n" + device.getAddress());
+				}
+			}
+			if (mbtA.isDiscovering()) {
+				mbtA.cancelDiscovery();
+			}
+			mbtA.startDiscovery();
+			// Register the BroadcastReceiver
+			IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
+			registerReceiver(mReceiver, filter); // Don't forget to unregister
+													// during onDestroy
+			mbtA.cancelDiscovery();
 		} else {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
@@ -44,20 +87,26 @@ public class BaseScreen extends Activity {
 		// Opens a database on the Android device
 		DatabaseHandler db = new DatabaseHandler(this);
 
-		//db.addWeather(new Weather("12", 65.3, 86.2, 100, 87, 50));
+		// db.addWeather(new Weather("12", 65.3, 86.2, 100, 87, 50));
 
-		final SimulateData sim = new SimulateData();
-		final int[] imageArray = { R.drawable.sunny_icon, R.drawable.night_rain };
+		final SimulateData sim = new SimulateData(); // Data Simulator
+		final int[] imageArray = { R.drawable.sunny_icon, R.drawable.night_rain };// Image
+																					// Array
 
 		// siren = getResources().openRawResourceFd(R.raw.siren);
 
-		final TextView textView = (TextView) findViewById(R.id.temp_curr);
-		final ImageView imageView = (ImageView) findViewById(R.id.imageView);
+		final TextView textView = (TextView) findViewById(R.id.temp_curr);// Current
+																			// Temperature
+		final ImageView imageView = (ImageView) findViewById(R.id.imageView);// Image
+																				// view
+																				// for
+																				// weather
 		final Handler handler = new Handler();
 
 		final Runnable runnable = new Runnable() {
 			int i = 0;
 
+			// Starts weather simulation
 			public void run() {
 				sim.TemperatureForecast(); // run dummyTemp
 				// try {
@@ -93,20 +142,7 @@ public class BaseScreen extends Activity {
 			}
 		};
 		handler.postDelayed(runnable, 2000); // for initial delay..
-		Button btnDockedMode = (Button) findViewById(R.id.button1);
 		Button btnMapView = (Button) findViewById(R.id.buttonMapView);
-
-		btnDockedMode.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent dockedScreen = new Intent(getApplicationContext(),
-						SecondScreen.class);
-				startActivity(dockedScreen);
-				handler.removeCallbacks(runnable);
-				finish();
-			}
-		});
 
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
@@ -141,6 +177,13 @@ public class BaseScreen extends Activity {
 	// mp = new MediaPlayer();
 	//
 	// }
+	@Override
+	public void onDestroy() {
+		unregisterReceiver(mReceiver);
+		if (mbtA.isDiscovering()) {
+			mbtA.cancelDiscovery();
+		}
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
