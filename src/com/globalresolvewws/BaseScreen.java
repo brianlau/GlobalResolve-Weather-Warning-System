@@ -26,6 +26,7 @@ public class BaseScreen extends Activity {
 	// boolean flag = false;
 	ArrayAdapter mAA;
 	BluetoothAdapter mbtA;
+	private BluetoothSocket mmServerSocket;
 	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
 		public void onReceive(Context context, Intent intent) {
 			String action = intent.getAction();
@@ -79,6 +80,10 @@ public class BaseScreen extends Activity {
 			registerReceiver(mReceiver, filter); // Don't forget to unregister
 													// during onDestroy
 			mbtA.cancelDiscovery();
+			AcceptThread AT = new AcceptThread(mmServerSocket, mbtA);
+			AT.run();
+			mmServerSocket = AT.getSocket();
+			
 		} else {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
