@@ -13,8 +13,9 @@ public class WeatherService {
 
 	public static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
-
-	public static void main(String[] args) {
+	
+	public String Weather() 
+	{
 		/*** Create the request ***/
 		// Let's pick a location:
 		String location = "accra";
@@ -47,11 +48,12 @@ public class WeatherService {
 			//System.out.print(inSource);
 			// And parse it!
 			xr.parse(inSource);
-
+			return inSource.toString();
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		} catch (SAXException se) {
 			se.printStackTrace();
 		}
+		return null;
 	}
 }
