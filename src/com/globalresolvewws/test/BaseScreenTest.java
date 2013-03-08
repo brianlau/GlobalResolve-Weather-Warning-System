@@ -13,13 +13,12 @@ public class BaseScreenTest extends
 		ActivityInstrumentationTestCase2<BaseScreen> {
 
 	private BaseScreen mActivity;
-	private Button myButton;
 	private ImageView mImageView;
 	private TextView mTextView;
 	public static final boolean INITIAL_POSITION = false;
 
 	public BaseScreenTest() {
-		super("com.example.globalresovlewws", BaseScreen.class);
+		super("com.globalresovlewws", BaseScreen.class);
 	}
 
 	@Override
@@ -28,8 +27,6 @@ public class BaseScreenTest extends
 		setActivityInitialTouchMode(false);
 
 		mActivity = getActivity();
-		myButton = (Button) mActivity
-				.findViewById(com.globalresolvewws.R.id.button1);
 		mImageView = (ImageView) mActivity
 				.findViewById(com.globalresolvewws.R.id.imageView);
 		mTextView = (TextView) mActivity
@@ -37,7 +34,6 @@ public class BaseScreenTest extends
 	}
 
 	public void testPresetUp() {
-		assertTrue(myButton != null);
 		assertTrue(mImageView != null);
 		assertTrue(mTextView != null);
 	}
@@ -45,9 +41,6 @@ public class BaseScreenTest extends
 	public void testMainActivityUI() {
 		mActivity.runOnUiThread(new Runnable() {
 			public void run() {
-				myButton.requestFocus();
-				myButton.setSelected(INITIAL_POSITION);
-				;
 			}
 		});
 	}
