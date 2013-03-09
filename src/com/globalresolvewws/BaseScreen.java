@@ -24,23 +24,8 @@ public class BaseScreen extends Activity {
 	// MediaPlayer mp = new MediaPlayer();
 	// AssetFileDescriptor siren;
 	// boolean flag = false;
-	ArrayAdapter mAA;
-	BluetoothAdapter mbtA;
-	private BluetoothSocket mmServerSocket;
-	private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
-		public void onReceive(Context context, Intent intent) {
-			String action = intent.getAction();
-			// When discovery finds a device
-			if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-				// Get the BluetoothDevice object from the Intent
-				BluetoothDevice device = intent
-						.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-				// Add the name and address to an array adapter to show in a
-				// ListView
-				mAA.add(device.getName() + "\n" + device.getAddress());
-			}
-		}
-	};
+	private ArrayAdapter mAA;
+	private BluetoothAdapter mbtA;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,14 +60,6 @@ public class BaseScreen extends Activity {
 				mbtA.cancelDiscovery();
 			}
 			mbtA.startDiscovery();
-			// Register the BroadcastReceiver
-			IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-			registerReceiver(mReceiver, filter); // Don't forget to unregister
-													// during onDestroy
-			mbtA.cancelDiscovery();
-			AcceptThread AT = new AcceptThread(mmServerSocket, mbtA);
-			AT.run();
-			mmServerSocket = AT.getSocket();
 			
 		} else {
 			Toast.makeText(this, "Bluetooth not supported with this device",
@@ -182,13 +159,6 @@ public class BaseScreen extends Activity {
 	// mp = new MediaPlayer();
 	//
 	// }
-	@Override
-	public void onDestroy() {
-		unregisterReceiver(mReceiver);
-		if (mbtA.isDiscovering()) {
-			mbtA.cancelDiscovery();
-		}
-	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
