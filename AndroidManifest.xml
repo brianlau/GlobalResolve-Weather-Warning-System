@@ -52,6 +52,7 @@
         <meta-data
     android:name="com.google.android.maps.v2.API_KEY"
     android:value="AIzaSyBajPN1conEtN2mzW2-C3ebo4P4mEu7egk"/>
+        <activity android:label="@string/select_device" android:name="DeviceListActivity"></activity>
         
     </application>    
    

@@ -5,57 +5,38 @@
     android:background="@android:color/darker_gray"
     tools:context=".BaseScreen" >
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="false"
-        android:layout_marginBottom="18dp"
-        android:text="@string/docked_Button" />
-    <Button
-        android:id="@+id/buttonMapView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="18dp"
-        android:text="@string/mapView_Button" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="180dip"
-        android:layout_above="@+id/button1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:background="@android:color/white"
-        android:gravity="center"
-        android:text="@string/risk" />
-
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/textView2"
+        android:layout_above="@+id/temp_curr"
         android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/button1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
         android:adjustViewBounds="true"
         android:contentDescription="@string/sun_desc"
         android:focusable="true"
         android:gravity="center" />
 
+    <Button
+        android:id="@+id/buttonMapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:text="@string/mapView_Button" />
+
     <TextView
         android:id="@+id/temp_curr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView"
+        android:layout_above="@+id/buttonMapView"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/button1"
+        android:focusable="true"
         android:gravity="center"
-        android:textSize="30sp"
-        android:textColor="@android:color/white"/>
+        android:textColor="@android:color/white"
+        android:textSize="30sp" />
 
 </RelativeLayout>
