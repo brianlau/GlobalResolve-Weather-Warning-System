@@ -66,6 +66,8 @@ public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAd
 public void setBaseRisk()
 {
 	currentRisk = 5;
+	adders = 0;
+	subtractors = 0;
 }
 
 public alarmEnum checkForAlarm()
