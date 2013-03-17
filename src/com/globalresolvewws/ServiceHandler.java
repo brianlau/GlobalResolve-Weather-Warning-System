@@ -53,8 +53,9 @@ public class ServiceHandler extends DefaultHandler {
 		//	entry.set(condition);
 		//}
 		if(qName.compareToIgnoreCase("humidity") == 0) {
-			int humid = Integer.parseInt(atts.getValue(0));
-			entry.setChanceOfPrecipi(humid);
+			String humid = atts.getValue(0).split("[a-z]")[7].split(":")[1].split("%")[0].split(" ")[1];
+			int humidval = Integer.parseInt(humid);
+			entry.setChanceOfPrecipi(humidval);
 		}
 		forecast.add(entry);
 	}
