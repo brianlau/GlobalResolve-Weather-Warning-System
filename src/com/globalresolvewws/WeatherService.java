@@ -1,5 +1,14 @@
 package com.globalresolvewws;
 
+/**
+ * This service is based off of an example found on stackoverflow
+ * which pointed at the google weather API. It has been modified to point at
+ * the previmeteo API and hard coded to point at Accra in Ghana
+ * 
+ * @author Caleb, (?)
+ * 
+ */
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
