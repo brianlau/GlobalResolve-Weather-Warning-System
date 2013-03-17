@@ -12,6 +12,7 @@ package com.globalresolvewws;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -20,10 +21,10 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 public class WeatherService {
 
-	public static final String URL_SOURCE =
+	protected static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
 	
-	public String Weather() 
+	public ArrayList<Weather> Weather() 
 	{
 		/*** Create the request ***/
 		// Let's pick a location:
@@ -46,7 +47,7 @@ public class WeatherService {
 			// Create an XML reader
 			XMLReader xr = XMLReaderFactory.createXMLReader();
 
-			// Tell that XML reader to use our special Google Handler
+			// Tell that XML reader to use our special Handler
 			ServiceHandler ourSpecialHandler = new ServiceHandler();
 			xr.setContentHandler(ourSpecialHandler);
 
@@ -56,8 +57,8 @@ public class WeatherService {
 			
 			//System.out.print(inSource);
 			// And parse it!
-			xr.parse(inSource);
-			return inSource.toString();
+			//xr.parse(inSource);
+			return ourSpecialHandler.forecast;
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		} catch (SAXException se) {
