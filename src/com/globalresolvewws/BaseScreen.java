@@ -18,7 +18,7 @@ import android.bluetooth.*;
 
 public class BaseScreen extends Activity {
 	// Debugging
-	private static final String TAG = "BluetoothChat";
+	private static final String TAG = "Weather Warning";
 	private static final boolean D = true;
 
 	// Message types sent from the BluetoothChatService Handler
@@ -194,8 +194,7 @@ public class BaseScreen extends Activity {
 				String address = data.getExtras().getString(
 						DeviceListActivity.EXTRA_DEVICE_ADDRESS);
 				// Get the BLuetoothDevice object
-				BluetoothDevice device = mbtA
-						.getRemoteDevice(address);
+				BluetoothDevice device = mbtA.getRemoteDevice(address);
 				// Attempt to connect to the device
 				mConnectionHandler.connect(device);
 			}
