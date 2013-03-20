@@ -16,6 +16,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
  
 public class MapScreen extends FragmentActivity implements LocationListener {
  
@@ -62,6 +64,26 @@ public class MapScreen extends FragmentActivity implements LocationListener {
                 onLocationChanged(location);
             }
             locationManager.requestLocationUpdates(provider, 20000, 0, this);
+            
+            googleMap.setOnMapClickListener(new OnMapClickListener() {
+				
+            	@Override
+				public void onMapClick(LatLng point) {
+
+					MarkerOptions mMarkerOptions = new MarkerOptions();
+					
+					mMarkerOptions.position(point);
+					
+					mMarkerOptions.title(point.latitude+ " : " + point.longitude);
+					
+					googleMap.clear();
+					
+					googleMap.animateCamera(CameraUpdateFactory.newLatLng(point));
+					
+					googleMap.addMarker(mMarkerOptions);
+					
+				}
+			});
         }
     }
     @Override
