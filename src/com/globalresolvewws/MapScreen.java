@@ -1,5 +1,7 @@
 package com.globalresolvewws;
 
+import java.text.DecimalFormat;
+
 import android.app.Dialog;
 import android.location.Criteria;
 import android.location.Location;
@@ -22,6 +24,7 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
 public class MapScreen extends FragmentActivity implements LocationListener {
  
     GoogleMap googleMap;
+    LatLng currLocation;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +77,9 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 					
 					mMarkerOptions.position(point);
 					
-					mMarkerOptions.title(point.latitude+ " : " + point.longitude);
+					double calc = CalculationByDistance(currLocation, point);
+					
+					mMarkerOptions.title(point.latitude+ " : " + point.longitude + "Distance: " + Double.valueOf(calc));
 					
 					googleMap.clear();
 					
@@ -98,10 +103,10 @@ public class MapScreen extends FragmentActivity implements LocationListener {
         double longitude = location.getLongitude();
  
         // Creating a LatLng object for the current location
-        LatLng latLng = new LatLng(latitude, longitude);
+        currLocation = new LatLng(latitude, longitude);
  
         // Showing the current location in Google Map
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(currLocation));
  
         // Zoom in the Google Map
         googleMap.animateCamera(CameraUpdateFactory.zoomTo(15));
@@ -110,6 +115,29 @@ public class MapScreen extends FragmentActivity implements LocationListener {
         curr_Location.setText("Latitude:" +  latitude  + ", Longitude:"+ longitude );
  
     }
+    
+    private double CalculationByDistance(LatLng StartP, LatLng EndP) {
+        int Radius=6371;//radius of earth in Km         
+        double lat1 = StartP.latitude;
+        double lat2 = EndP.latitude;
+        double lon1 = StartP.longitude;
+        double lon2 = EndP.longitude;
+        double dLat = Math.toRadians(lat2-lat1);
+        double dLon = Math.toRadians(lon2-lon1);
+        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+        double c = 2 * Math.asin(Math.sqrt(a));
+        double valueResult= Radius*c;
+        double km=valueResult/1;
+        DecimalFormat newFormat = new DecimalFormat("####");
+        int kmInDec =  Integer.valueOf(newFormat.format(km));
+        double meter=valueResult%1000;
+        int meterInDec= Integer.valueOf(newFormat.format(meter));
+       // Log.i("Radius Value",""+valueResult+"   KM  "+kmInDec+" Meter   "+meterInDec);
+
+        return Radius * c;
+     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
