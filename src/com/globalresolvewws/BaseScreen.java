@@ -85,15 +85,20 @@ public class BaseScreen extends Activity {
 		});
 
 		// If BT is not on, request that it be enabled.
-		// setupChat() will then be called during onActivityResult
-		if (!mbtA.isEnabled()) {
-			Intent enableIntent = new Intent(
-					BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-			// Otherwise, setup the chat session
+		mbtA = BluetoothAdapter.getDefaultAdapter();
+		if (mbtA == null) {
+			Toast.makeText(this, "Bluetooth not supported with this device",
+					Toast.LENGTH_LONG).show();
 		} else {
-			if (mConnectionHandler == null) {
-				setupConnection();
+			if (!mbtA.isEnabled()) {
+				Intent enableIntent = new Intent(
+						BluetoothAdapter.ACTION_REQUEST_ENABLE);
+				startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+				// Otherwise, setup the session
+			} else {
+				if (mConnectionHandler == null) {
+					setupConnection();
+				}
 			}
 		}
 	}
@@ -141,9 +146,6 @@ public class BaseScreen extends Activity {
 	@Override
 	public void onPause() {
 		super.onPause();
-		// if(mp != null){
-		// mp.release();
-		// }
 
 	}
 

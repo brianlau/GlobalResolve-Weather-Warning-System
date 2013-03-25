@@ -13,6 +13,7 @@ import com.globalresolvewws.R;
 import com.globalresolvewws.R.id;
 import com.globalresolvewws.BaseScreen;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
@@ -20,7 +21,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({BluetoothDevice.class})
+@PrepareForTest({BluetoothDevice.class, BluetoothAdapter.class})
 public class BaseScreenTest extends
 		ActivityInstrumentationTestCase2<BaseScreen> {
 
@@ -28,6 +29,7 @@ public class BaseScreenTest extends
 	private ImageView mImageView;
 	private TextView mTextView;
 	private Button mMapViewButton;
+	private BluetoothAdapter mBluetoothAdapter;
 
 	public BaseScreenTest() {
 		super("com.globalresovlewws", BaseScreen.class);
@@ -43,7 +45,8 @@ public class BaseScreenTest extends
 				.findViewById(com.globalresolvewws.R.id.imageView);
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
-		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.map);
+		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	}
 
 	public void testPresetUp() {
