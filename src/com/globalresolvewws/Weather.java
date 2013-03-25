@@ -14,7 +14,9 @@ public class Weather {
 	private String time;
 	private int	maxTemp;
 	private int minTemp;
-	private int chanceOfPrecipi;
+	private int humidity;
+	private double pressure;
+	
 	
 	
 	/**
@@ -38,7 +40,7 @@ public class Weather {
 		this.time = time;
 		this.maxTemp = maxTemp;
 		this.minTemp = minTemp;
-		this.chanceOfPrecipi = cOP;
+		this.humidity = cOP;
 	}
 
 /**
@@ -136,7 +138,7 @@ public class Weather {
  * @return Returns the predicted chance of precipitation as an int
  */
 	public int getChanceOfPrecipi() {
-		return chanceOfPrecipi;
+		return humidity;
 	}
 
 /**
@@ -145,6 +147,6 @@ public class Weather {
  */
 
 	public void setChanceOfPrecipi(int chanceOfPrecipi) {
-		this.chanceOfPrecipi = chanceOfPrecipi;
+		this.humidity = chanceOfPrecipi;
 	}
 }
