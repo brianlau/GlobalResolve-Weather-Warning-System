@@ -16,5 +16,4 @@ public class WeatherServiceTest {
 		ArrayList<Weather> al = WS.Weather();
 		assertNotNull(al);
 	}
-
 }
