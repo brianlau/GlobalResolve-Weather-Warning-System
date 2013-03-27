@@ -67,17 +67,21 @@
             -pre-clean
     -->
    <!-- override "compile" target in platform android_rules.xml to include tested app's external libraries -->
-   <!--  
+	
 <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
 
 <target name="findbugs">
 	<mkdir dir="reports" />
 	<findbugs home="${findbugs.home}" output="xml" outputFile="reports/findbugs.xml" excludeFilter="findbugs-exclude.xml">
-		<auxClasspath path="${android.jar}" />
+		<auxClasspath path="${project.target.android.jar}" />
+		<auxClasspath path="libs/android-support-v4.jar" />
+		<auxClasspath path="libs/google-play-services.jar" />
+		<auxClasspath path="libs/junit.jar" />
 		<class location="${out.dir}" />
 	</findbugs>
 </target>
-	-->
+	
+
     <!-- Import the actual build file.
 
          To customize existing targets, there are two options:
@@ -96,7 +100,7 @@
          In all cases you must update the value of version-tag below to read 'custom' instead of an integer,
          in order to avoid having your file be overridden by tools such as "android update project"
     -->
-    <!-- version-tag: 1 -->
+    <!-- version-tag: custom -->
     <import file="${sdk.dir}/tools/ant/build.xml" />
 
 </project>

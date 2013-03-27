@@ -1,13 +1,14 @@
 package com.globalresolvewws.test;
 
 
-import junit.framework.TestCase;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import android.test.AndroidTestCase;
+
 import com.globalresolvewws.Weather;
 
-public class WeatherTest extends TestCase {
+public class WeatherTest extends AndroidTestCase {
 	private static Weather weather1;
 	private static Weather weather2;
 
