@@ -2,7 +2,7 @@ package com.globalresolvewws;
 
 
 /**
- * The riskmodel currently scores risk on a 1-10 scale with a defualt of 5.
+ * The riskmodel currently scores risk on a 1-10 scale with a default of 5.
  * 
  * @author Caleb
  * 
