@@ -4,11 +4,13 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
+import android.test.AndroidTestCase;
+
 import com.globalresolvewws.*;
 
 import org.junit.Test;
 
-public class WeatherServiceTest {
+public class WeatherServiceTest extends AndroidTestCase{
 
 	@Test
 	public void test() {
