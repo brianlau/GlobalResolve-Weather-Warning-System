@@ -57,7 +57,7 @@ public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAd
 	{
 		adders++;
 	}
-	if(dayToConsider.getChanceOfPrecipi() > alarmHumid)
+	if(dayToConsider.getHumidity() > alarmHumid)
 	{
 		adders++;
 	}

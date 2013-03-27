@@ -19,15 +19,16 @@ public class WeatherTest extends TestCase {
 	
 	@Test
 	public void testConstructor() throws Exception {
-		weather1 = new Weather("12:32:01", 45.2, 78.1, 90, 78, 12);
-		weather2 = new Weather("01:23:75", 101.2, 45.3, 1, -3, 1);
+		weather1 = new Weather("12:32:01", 45.2, 78.1, 90, 78, 12, 1.23);
+		weather2 = new Weather("01:23:75", 101.2, 45.3, 1, -3, 1, 1.52);
 		assertNotNull(weather1);
 		assertEquals("12:32:01", weather1.getTime());
 		assertEquals(45.2, weather1.getLatitude(),.01);
 		assertEquals(78.1, weather1.getLongitude(),.01);
 		assertEquals(90, weather1.getMaxTemp());
 		assertEquals(78, weather1.getMinTemp());
-		assertEquals(12, weather1.getChanceOfPrecipi());
+		assertEquals(12, weather1.getHumidity());
+		assertEquals(1.23, weather1.getPressure());
 		assertNotNull(weather2);
 	}
 
@@ -68,11 +69,18 @@ public class WeatherTest extends TestCase {
 		assertEquals(-1,weather2.getMinTemp(),.1);
 	}
 	
-	@Test public void testSetAndGetCoP(){
-		weather1.setChanceOfPrecipi(50);
-		weather2.setChanceOfPrecipi(2);
-		assertEquals(50,weather1.getChanceOfPrecipi());
-		assertEquals(2,weather2.getChanceOfPrecipi());
+	@Test public void testSetAndGetHumidity(){
+		weather1.setHumidity(50);
+		weather2.setHumidity(2);
+		assertEquals(50,weather1.getHumidity());
+		assertEquals(2,weather2.getHumidity());
+	}
+	
+	@Test public void testSetandGetPressure(){
+		weather1.setPressure(2.5);
+		weather2.setPressure(.9);
+		assertEquals(2.5,weather1.getPressure(),.1);
+		assertEquals(.9,weather2.getPressure(),.1);
 	}
 
 

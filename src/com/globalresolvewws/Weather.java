@@ -34,13 +34,14 @@ public class Weather {
  * @param minTemp	The minimnum predicted temperature at time of recording
  * @param cOP		The predicted chance of precipitation
  */
-	public Weather(String time, double latitude, double longitude, int maxTemp, int minTemp, int cOP){
+	public Weather(String time, double latitude, double longitude, int maxTemp, int minTemp, int humidity, double pressure){
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.time = time;
 		this.maxTemp = maxTemp;
 		this.minTemp = minTemp;
-		this.humidity = cOP;
+		this.humidity = humidity;
+		this.pressure = pressure;
 	}
 
 /**
@@ -137,7 +138,7 @@ public class Weather {
  * 
  * @return Returns the predicted chance of precipitation as an int
  */
-	public int getChanceOfPrecipi() {
+	public int getHumidity() {
 		return humidity;
 	}
 
@@ -146,7 +147,15 @@ public class Weather {
  * @param chanceOfPrecipi Accepts an int as the parameter and sets the weather objects chance of precipitation
  */
 
-	public void setChanceOfPrecipi(int chanceOfPrecipi) {
-		this.humidity = chanceOfPrecipi;
+	public void setHumidity(int humidity) {
+		this.humidity = humidity;
+	}
+	
+	public double getPressure(){
+		return pressure;
+	}
+	
+	public void setPressure(double pressure){
+		this.pressure = pressure;
 	}
 }

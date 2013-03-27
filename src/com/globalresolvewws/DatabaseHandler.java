@@ -21,7 +21,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_TIME = "Time";
 	private static final String KEY_MAX_TEMP = "MaxTemp";
 	private static final String KEY_MIN_TEMP = "MinTemp";
-	private static final String KEY_CHANCE_PREC = "ChanceofPrecipitation";
+	private static final String KEY_HUMIDITY = "Humidity";
+	private static final String KEY_PRESSURE = "Pressure";
 
 	public DatabaseHandler(Context context) {
 		super(context, DATA_BASE_NAME, null, DATA_BASE_VERSION);
@@ -42,7 +43,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ "_id INTEGER PRIMARY KEY AUTOINCREMENT, " + KEY_TIME
 				+ " TEXT, " + KEY_LAT + " TEXT, " + KEY_LONG + " TEXT, "
 				+ KEY_MAX_TEMP + " int not null, " + KEY_MIN_TEMP
-				+ " int not null, " + KEY_CHANCE_PREC + " int not null" + ");";
+				+ " int not null, " + KEY_HUMIDITY + " int not null, "
+				+ KEY_PRESSURE + " TEXT " + ");";
 		db.execSQL(CREATE_WEATHER_TABLE);
 
 	}
@@ -66,9 +68,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		values.put(KEY_LAT, weather.getLatitude());
 		values.put(KEY_LONG, weather.getLongitude());
 		values.put(KEY_TIME, weather.getTime());
-		values.put(KEY_CHANCE_PREC, weather.getChanceOfPrecipi());
+		values.put(KEY_HUMIDITY, weather.getHumidity());
 		values.put(KEY_MAX_TEMP, weather.getMaxTemp());
 		values.put(KEY_MIN_TEMP, weather.getMinTemp());
+		values.put(KEY_PRESSURE, weather.getPressure());
 
 		db.insert(TABLE_WEATHER, null, values);
 		db.close();
@@ -84,29 +87,31 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public Weather getWeather(String latitude, String longitude) {
 		Weather weather;
 		SQLiteDatabase db = this.getReadableDatabase();
-		Cursor cursor = db.query(TABLE_WEATHER,
-				new String[] { KEY_TIME, KEY_LAT, KEY_LONG, KEY_MAX_TEMP,
-						KEY_MIN_TEMP, KEY_CHANCE_PREC, }, KEY_LAT + "=?"
-						+ " and " + KEY_LONG + "=?", new String[] { latitude,
-						longitude }, null, null, null);
-		if (cursor != null){
+		Cursor cursor = db.query(TABLE_WEATHER, new String[] { KEY_TIME,
+				KEY_LAT, KEY_LONG, KEY_MAX_TEMP, KEY_MIN_TEMP, KEY_HUMIDITY,
+				KEY_PRESSURE }, KEY_LAT + "=?" + " and " + KEY_LONG + "=?",
+				new String[] { latitude, longitude }, null, null, null);
+		if (cursor != null) {
 			cursor.moveToFirst();
 
-		weather = new Weather(cursor.getString(0),
-				Double.parseDouble(cursor.getString(1)),
-				Double.parseDouble(cursor.getString(2)),
-				Integer.parseInt(cursor.getString(3)), Integer.parseInt(cursor
-						.getString(4)), Integer.parseInt(cursor.getString(5)));
-		return weather;
-		}
-		else{
+			weather = new Weather(cursor.getString(0),
+					Double.parseDouble(cursor.getString(1)),
+					Double.parseDouble(cursor.getString(2)),
+					Integer.parseInt(cursor.getString(3)),
+					Integer.parseInt(cursor.getString(4)),
+					Integer.parseInt(cursor.getString(5)),
+					Double.parseDouble(cursor.getString(6)));
+			return weather;
+		} else {
 			return null;
 		}
 	}
-/**
- * Method returns a list of all weather objects in the SQLite database
- * @return List of weather objects
- */
+
+	/**
+	 * Method returns a list of all weather objects in the SQLite database
+	 * 
+	 * @return List of weather objects
+	 */
 	public List<Weather> getAllWeather() {
 		List<Weather> weatherList = new ArrayList<Weather>();
 
@@ -123,17 +128,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				weather.setLongitude(Double.parseDouble(cursor.getString(3)));
 				weather.setMaxTemp(Integer.parseInt(cursor.getString(4)));
 				weather.setMinTemp(Integer.parseInt(cursor.getString(5)));
-				weather.setChanceOfPrecipi(Integer.parseInt(cursor.getString(6)));
+				weather.setHumidity(Integer.parseInt(cursor.getString(6)));
+				weather.setPressure(Double.parseDouble(cursor.getString(7)));
 				weatherList.add(weather);
 			} while (cursor.moveToNext());
 		}
 		return weatherList;
 
 	}
-/**
- * Deletes a specified weather object from the SQLite Database
- * @param weather Weather object to be deleted
- */
+
+	/**
+	 * Deletes a specified weather object from the SQLite Database
+	 * 
+	 * @param weather
+	 *            Weather object to be deleted
+	 */
 	public void deleteWeather(Weather weather) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(
