@@ -9,6 +9,7 @@ import static org.powermock.api.easymock.PowerMock.replayAll;
 import static org.powermock.api.easymock.PowerMock.verifyAll;
 import static org.easymock.EasyMock.expect;
 
+import com.globalresolvewws.MapScreen;
 import com.globalresolvewws.R;
 import com.globalresolvewws.R.id;
 import com.globalresolvewws.BaseScreen;
@@ -16,12 +17,13 @@ import com.globalresolvewws.BaseScreen;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.test.ActivityInstrumentationTestCase2;
+import android.test.UiThreadTest;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({BluetoothDevice.class, BluetoothAdapter.class})
+@PrepareForTest({BaseScreen.class})
 public class BaseScreenTest extends
 		ActivityInstrumentationTestCase2<BaseScreen> {
 
@@ -50,14 +52,17 @@ public class BaseScreenTest extends
 	}
 
 	public void testPresetUp() {
+		assertNotNull(mActivity);
 		assertTrue(mImageView != null);
 		assertTrue(mTextView != null);
 		assertTrue(mMapViewButton != null);
 	}
-
+	@UiThreadTest
 	public void testMainActivityUI() {
 		mActivity.runOnUiThread(new Runnable() {
 			public void run() {
+				mMapViewButton.requestFocus();
+
 			}
 		});
 	}

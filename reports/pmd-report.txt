@@ -1,0 +1,284 @@
+
+src/com/globalresolvewws/BaseScreen.java:3	No need to import a type that lives in the same package
+src/com/globalresolvewws/BaseScreen.java:19	This class has too many methods, consider refactoring it.
+src/com/globalresolvewws/BaseScreen.java:22	Avoid variables with short names like D
+src/com/globalresolvewws/BaseScreen.java:25	Avoid excessively long variable names like MESSAGE_STATE_CHANGE
+src/com/globalresolvewws/BaseScreen.java:28	Avoid excessively long variable names like MESSAGE_DEVICE_NAME
+src/com/globalresolvewws/BaseScreen.java:36	Avoid excessively long variable names like REQUEST_CONNECT_DEVICE
+src/com/globalresolvewws/BaseScreen.java:40	Avoid excessively long variable names like mConnectedDeviceName
+src/com/globalresolvewws/BaseScreen.java:40	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:42	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:44	Avoid excessively long variable names like mConnectionHandler
+src/com/globalresolvewws/BaseScreen.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:46	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:49	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:75	Local variable 'btnMapView' could be declared final
+src/com/globalresolvewws/BaseScreen.java:79	Avoid variables with short names like v
+src/com/globalresolvewws/BaseScreen.java:79	Parameter 'v' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:80	Local variable 'mapScreen' could be declared final
+src/com/globalresolvewws/BaseScreen.java:93	Avoid if (x != y) ..; else ..;
+src/com/globalresolvewws/BaseScreen.java:94	Local variable 'enableIntent' could be declared final
+src/com/globalresolvewws/BaseScreen.java:111	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:113	Parameter 'msg' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:114	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:116	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:147	Overriding method merely calls super
+src/com/globalresolvewws/BaseScreen.java:153	Use block level rather than method level synchronization
+src/com/globalresolvewws/BaseScreen.java:162	These nested if statements could be combined
+src/com/globalresolvewws/BaseScreen.java:173	super should be called at the end of the method
+src/com/globalresolvewws/BaseScreen.java:179	Avoid using if statements without curly braces
+src/com/globalresolvewws/BaseScreen.java:180	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BaseScreen.java:182	Local variable 'discoverableIntent' could be declared final
+src/com/globalresolvewws/BaseScreen.java:190	Parameter 'data' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:190	Parameter 'requestCode' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:191	A switch with less than 3 branches is inefficient, use a if statement instead.
+src/com/globalresolvewws/BaseScreen.java:191	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:196	Local variable 'address' could be declared final
+src/com/globalresolvewws/BaseScreen.java:226	A switch with less than 3 branches is inefficient, use a if statement instead.
+src/com/globalresolvewws/BaseScreen.java:226	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:231	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/BaseScreen.java:235	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/BluetoothConnectionHandler.java:35	This class has too many methods, consider refactoring it.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:39	Avoid variables with short names like D
+src/com/globalresolvewws/BluetoothConnectionHandler.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:45	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:46	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:47	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:48	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:61	Avoid unused constructor parameters such as 'context'.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:61	Parameter 'context' is not assigned and could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:61	Parameter 'handler' is not assigned and could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:71	Parameter 'state' is not assigned and could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:71	Use block level rather than method level synchronization
+src/com/globalresolvewws/BluetoothConnectionHandler.java:72	Avoid using if statements without curly braces
+src/com/globalresolvewws/BluetoothConnectionHandler.java:72	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BluetoothConnectionHandler.java:80	Use block level rather than method level synchronization
+src/com/globalresolvewws/BluetoothConnectionHandler.java:87	Use block level rather than method level synchronization
+src/com/globalresolvewws/BluetoothConnectionHandler.java:88	Avoid using if statements without curly braces
+src/com/globalresolvewws/BluetoothConnectionHandler.java:88	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BluetoothConnectionHandler.java:91	Assigning an Object to null is a code smell.  Consider refactoring.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:93	Assigning an Object to null is a code smell.  Consider refactoring.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:106	Parameter 'device' is not assigned and could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:106	Use block level rather than method level synchronization
+src/com/globalresolvewws/BluetoothConnectionHandler.java:107	Avoid using if statements without curly braces
+src/com/globalresolvewws/BluetoothConnectionHandler.java:107	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BluetoothConnectionHandler.java:111	Assigning an Object to null is a code smell.  Consider refactoring.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:111	These nested if statements could be combined
+src/com/globalresolvewws/BluetoothConnectionHandler.java:115	Assigning an Object to null is a code smell.  Consider refactoring.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:127	Parameter 'device' is not assigned and could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:127	Use block level rather than method level synchronization
+src/com/globalresolvewws/BluetoothConnectionHandler.java:128	Avoid using if statements without curly braces
+src/com/globalresolvewws/BluetoothConnectionHandler.java:128	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BluetoothConnectionHandler.java:131	Assigning an Object to null is a code smell.  Consider refactoring.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:144	Local variable 'msg' could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:145	Local variable 'bundle' could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:157	Avoid using if statements without curly braces
+src/com/globalresolvewws/BluetoothConnectionHandler.java:157	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BluetoothConnectionHandler.java:171	Avoid variables with short names like r
+src/com/globalresolvewws/BluetoothConnectionHandler.java:188	Local variable 'msg' could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:189	Local variable 'bundle' could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:202	Local variable 'msg' could be declared final
+src/com/globalresolvewws/BluetoothConnectionHandler.java:214	To be compliant to J2EE, a webapp should not use any thread.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:218	It is a good practice to call super() in a constructor
+src/com/globalresolvewws/BluetoothConnectionHandler.java:233	Found 'DD'-anomaly for variable 'socket' (lines '233'-'240').
+src/com/globalresolvewws/BluetoothConnectionHandler.java:233	Found 'DU'-anomaly for variable 'socket' (lines '233'-'269').
+src/com/globalresolvewws/BluetoothConnectionHandler.java:240	Found 'DU'-anomaly for variable 'socket' (lines '240'-'269').
+src/com/globalresolvewws/BluetoothConnectionHandler.java:249	Switch statements should have a default label
+src/com/globalresolvewws/BluetoothConnectionHandler.java:287	To be compliant to J2EE, a webapp should not use any thread.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:291	It is a good practice to call super() in a constructor
+src/com/globalresolvewws/BluetoothConnectionHandler.java:352	To be compliant to J2EE, a webapp should not use any thread.
+src/com/globalresolvewws/BluetoothConnectionHandler.java:357	It is a good practice to call super() in a constructor
+src/com/globalresolvewws/BluetoothConnectionHandler.java:377	Found 'DU'-anomaly for variable 'buffer' (lines '377'-'395').
+src/com/globalresolvewws/DatabaseHandler.java:27	Parameter 'context' is not assigned and could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:41	Avoid variables with short names like db
+src/com/globalresolvewws/DatabaseHandler.java:41	Parameter 'db' is not assigned and could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:42	Avoid excessively long variable names like CREATE_WEATHER_TABLE
+src/com/globalresolvewws/DatabaseHandler.java:42	Local variable 'CREATE_WEATHER_TABLE' could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:53	Avoid variables with short names like db
+src/com/globalresolvewws/DatabaseHandler.java:53	Parameter 'db' is not assigned and could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:53	Parameter 'newVersion' is not assigned and could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:53	Parameter 'oldVersion' is not assigned and could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:65	Avoid variables with short names like db
+src/com/globalresolvewws/DatabaseHandler.java:65	Local variable 'db' could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:67	Local variable 'values' could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:89	Avoid variables with short names like db
+src/com/globalresolvewws/DatabaseHandler.java:89	Local variable 'db' could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:90	Local variable 'cursor' could be declared final
+src/com/globalresolvewws/DatabaseHandler.java:94	Avoid if (x != y) ..; else ..;
+src/com/globalresolvewws/DatabaseHandler.java:104	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/DatabaseHandler.java:120	Avoid variables with short names like db
+src/com/globalresolvewws/DatabaseHandler.java:125	Avoid instantiating new objects inside loops
+src/com/globalresolvewws/DeviceListActivity.java:47	Avoid variables with short names like D
+src/com/globalresolvewws/DeviceListActivity.java:50	Avoid excessively long variable names like EXTRA_DEVICE_ADDRESS
+src/com/globalresolvewws/DeviceListActivity.java:50	The field name indicates a constant but its modifiers do not
+src/com/globalresolvewws/DeviceListActivity.java:50	Variables should start with a lowercase character
+src/com/globalresolvewws/DeviceListActivity.java:50	Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
+src/com/globalresolvewws/DeviceListActivity.java:53	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/DeviceListActivity.java:54	Avoid excessively long variable names like mPairedDevicesArrayAdapter
+src/com/globalresolvewws/DeviceListActivity.java:54	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/DeviceListActivity.java:54	Perhaps 'mPairedDevicesArrayAdapter' could be replaced by a local variable.
+src/com/globalresolvewws/DeviceListActivity.java:55	Avoid excessively long variable names like mNewDevicesArrayAdapter
+src/com/globalresolvewws/DeviceListActivity.java:55	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/DeviceListActivity.java:58	Avoid excessively long variable names like savedInstanceState
+src/com/globalresolvewws/DeviceListActivity.java:58	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:69	Local variable 'scanButton' could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:71	Avoid variables with short names like v
+src/com/globalresolvewws/DeviceListActivity.java:71	Parameter 'v' is not assigned and could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:83	Local variable 'pairedListView' could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:88	Avoid excessively long variable names like newDevicesListView
+src/com/globalresolvewws/DeviceListActivity.java:88	Local variable 'newDevicesListView' could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:104	Local variable 'pairedDevices' could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:107	Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()
+src/com/globalresolvewws/DeviceListActivity.java:113	Local variable 'noDevices' could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:128	super should be called at the end of the method
+src/com/globalresolvewws/DeviceListActivity.java:135	Avoid using if statements without curly braces
+src/com/globalresolvewws/DeviceListActivity.java:135	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/DeviceListActivity.java:154	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/DeviceListActivity.java:154	Private field 'mDeviceClickListener' could be made final; it is only initialized in the declaration or constructor.
+src/com/globalresolvewws/DeviceListActivity.java:155	Avoid variables with short names like av
+src/com/globalresolvewws/DeviceListActivity.java:155	Avoid variables with short names like v
+src/com/globalresolvewws/DeviceListActivity.java:155	Parameter 'arg2' is not assigned and could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:155	Parameter 'arg3' is not assigned and could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:155	Parameter 'av' is not assigned and could be declared final
+src/com/globalresolvewws/DeviceListActivity.java:175	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/MapScreen.java:26	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/MapScreen.java:26	Use explicit scoping instead of the default package private level
+src/com/globalresolvewws/MapScreen.java:27	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/MapScreen.java:27	Use explicit scoping instead of the default package private level
+src/com/globalresolvewws/MapScreen.java:30	Avoid excessively long variable names like savedInstanceState
+src/com/globalresolvewws/MapScreen.java:30	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/globalresolvewws/MapScreen.java:34	Local variable 'status' could be declared final
+src/com/globalresolvewws/MapScreen.java:37	Avoid if (x != y) ..; else ..;
+src/com/globalresolvewws/MapScreen.java:39	Local variable 'requestCode' could be declared final
+src/com/globalresolvewws/MapScreen.java:40	Local variable 'dialog' could be declared final
+src/com/globalresolvewws/MapScreen.java:46	Avoid variables with short names like fm
+src/com/globalresolvewws/MapScreen.java:46	Local variable 'fm' could be declared final
+src/com/globalresolvewws/MapScreen.java:55	Local variable 'locationManager' could be declared final
+src/com/globalresolvewws/MapScreen.java:74	Parameter 'point' is not assigned and could be declared final
+src/com/globalresolvewws/MapScreen.java:95	Parameter 'location' is not assigned and could be declared final
+src/com/globalresolvewws/MapScreen.java:119	Method names should not start with capital letters
+src/com/globalresolvewws/MapScreen.java:119	Parameter 'EndP' is not assigned and could be declared final
+src/com/globalresolvewws/MapScreen.java:119	Parameter 'StartP' is not assigned and could be declared final
+src/com/globalresolvewws/MapScreen.java:127	Avoid variables with short names like a
+src/com/globalresolvewws/MapScreen.java:130	Avoid variables with short names like c
+src/com/globalresolvewws/MapScreen.java:132	Avoid variables with short names like km
+src/com/globalresolvewws/MapScreen.java:134	Avoid unused local variables such as 'kmInDec'.
+src/com/globalresolvewws/MapScreen.java:134	Found 'DU'-anomaly for variable 'kmInDec' (lines '134'-'140').
+src/com/globalresolvewws/MapScreen.java:136	Avoid unused local variables such as 'meterInDec'.
+src/com/globalresolvewws/MapScreen.java:136	Found 'DU'-anomaly for variable 'meterInDec' (lines '136'-'140').
+src/com/globalresolvewws/RiskModel.java:23	Parameter 'currentRisk' is not assigned and could be declared final
+src/com/globalresolvewws/RiskModel.java:31	Parameter 'adders' is not assigned and could be declared final
+src/com/globalresolvewws/RiskModel.java:39	Parameter 'subtractors' is not assigned and could be declared final
+src/com/globalresolvewws/RiskModel.java:48	Parameter 'alarmHigh' is not assigned and could be declared final
+src/com/globalresolvewws/RiskModel.java:48	Parameter 'alarmHumid' is not assigned and could be declared final
+src/com/globalresolvewws/RiskModel.java:50	Avoid variables with short names like WS
+src/com/globalresolvewws/RiskModel.java:50	Local variable 'WS' could be declared final
+src/com/globalresolvewws/RiskModel.java:51	Local variable 'dayToConsider' could be declared final
+src/com/globalresolvewws/RiskModel.java:77	Avoid using if...else statements without curly braces
+src/com/globalresolvewws/RiskModel.java:79	Avoid using if...else statements without curly braces
+src/com/globalresolvewws/RiskModel.java:81	Avoid using if...else statements without curly braces
+src/com/globalresolvewws/ServiceHandler.java:18	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/globalresolvewws/ServiceHandler.java:18	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/globalresolvewws/ServiceHandler.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/ServiceHandler.java:22	Avoid unnecessary constructors - the compiler will generate these for you
+src/com/globalresolvewws/ServiceHandler.java:29	System.out.print is used
+src/com/globalresolvewws/ServiceHandler.java:33	System.out.print is used
+src/com/globalresolvewws/ServiceHandler.java:37	Parameter 'atts' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:37	Parameter 'name' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:37	Parameter 'qName' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:37	Parameter 'uri' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:38	Local variable 'entry' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:40	Local variable 'day' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:44	Local variable 'low' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:48	Local variable 'high' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:56	Local variable 'humid' could be declared final
+src/com/globalresolvewws/SimulateData.java:5	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/SimulateData.java:7	Method names should not start with capital letters
+src/com/globalresolvewws/SimulateData.java:11	Method names should not start with capital letters
+src/com/globalresolvewws/Weather.java:25	Document empty constructor
+src/com/globalresolvewws/Weather.java:37	Parameter 'humidity' is not assigned and could be declared final
+src/com/globalresolvewws/Weather.java:37	Parameter 'latitude' is not assigned and could be declared final
+src/com/globalresolvewws/Weather.java:37	Parameter 'longitude' is not assigned and could be declared final
+src/com/globalresolvewws/Weather.java:37	Parameter 'maxTemp' is not assigned and could be declared final
+src/com/globalresolvewws/Weather.java:37	Parameter 'minTemp' is not assigned and could be declared final
+src/com/globalresolvewws/WeatherService.java:27	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/globalresolvewws/WeatherService.java:27	Avoid using implementation types like 'ArrayList'; use the interface instead
+src/com/globalresolvewws/WeatherService.java:27	Method names should not start with capital letters
+src/com/globalresolvewws/WeatherService.java:31	Local variable 'location' could be declared final
+src/com/globalresolvewws/WeatherService.java:33	Found 'DD'-anomaly for variable 'query' (lines '33'-'35').
+src/com/globalresolvewws/WeatherService.java:41	Local variable 'urlObject' could be declared final
+src/com/globalresolvewws/WeatherService.java:43	Avoid variables with short names like in
+src/com/globalresolvewws/WeatherService.java:43	Local variable 'in' could be declared final
+src/com/globalresolvewws/WeatherService.java:48	Avoid variables with short names like xr
+src/com/globalresolvewws/WeatherService.java:48	Local variable 'xr' could be declared final
+src/com/globalresolvewws/WeatherService.java:51	Local variable 'ourSpecialHandler' could be declared final
+src/com/globalresolvewws/WeatherService.java:56	Avoid unused local variables such as 'inSource'.
+src/com/globalresolvewws/WeatherService.java:56	Found 'DU'-anomaly for variable 'inSource' (lines '56'-'68').
+src/com/globalresolvewws/WeatherService.java:61	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/WeatherService.java:63	Avoid printStackTrace(); use a logger call instead.
+src/com/globalresolvewws/WeatherService.java:65	Avoid printStackTrace(); use a logger call instead.
+src/com/globalresolvewws/test/BaseScreenTest.java:7	Avoid unused imports such as 'org.powermock.api.easymock.PowerMock.mockStatic'
+src/com/globalresolvewws/test/BaseScreenTest.java:7	Avoid unused imports such as 'org.powermock.api.easymock.PowerMock.mockStatic'
+src/com/globalresolvewws/test/BaseScreenTest.java:8	Avoid unused imports such as 'org.powermock.api.easymock.PowerMock.replayAll'
+src/com/globalresolvewws/test/BaseScreenTest.java:8	Avoid unused imports such as 'org.powermock.api.easymock.PowerMock.replayAll'
+src/com/globalresolvewws/test/BaseScreenTest.java:9	Avoid unused imports such as 'org.powermock.api.easymock.PowerMock.verifyAll'
+src/com/globalresolvewws/test/BaseScreenTest.java:30	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BaseScreenTest.java:31	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BaseScreenTest.java:32	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BaseScreenTest.java:33	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BaseScreenTest.java:34	Avoid unused private fields such as 'mBluetoothAdapter'.
+src/com/globalresolvewws/test/BaseScreenTest.java:34	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BaseScreenTest.java:34	Perhaps 'mBluetoothAdapter' could be replaced by a local variable.
+src/com/globalresolvewws/test/BaseScreenTest.java:40	JUnit 4 tests that set up tests should use the @Before annotation
+src/com/globalresolvewws/test/BaseScreenTest.java:54	JUnit 4 tests that execute tests should use the @Test annotation
+src/com/globalresolvewws/test/BaseScreenTest.java:55	JUnit assertions should include a message
+src/com/globalresolvewws/test/BaseScreenTest.java:56	JUnit assertions should include a message
+src/com/globalresolvewws/test/BaseScreenTest.java:56	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+src/com/globalresolvewws/test/BaseScreenTest.java:57	JUnit assertions should include a message
+src/com/globalresolvewws/test/BaseScreenTest.java:57	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+src/com/globalresolvewws/test/BaseScreenTest.java:58	JUnit assertions should include a message
+src/com/globalresolvewws/test/BaseScreenTest.java:58	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
+src/com/globalresolvewws/test/BaseScreenTest.java:60	JUnit 4 tests that execute tests should use the @Test annotation
+src/com/globalresolvewws/test/BaseScreenTest.java:61	JUnit tests should include assert() or fail()
+src/com/globalresolvewws/test/BaseScreenTest.java:62	To be compliant to J2EE, a webapp should not use any thread.
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:14	Avoid variables with short names like db
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:14	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:15	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:18	JUnit 4 tests that set up tests should use the @Before annotation
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:30	JUnit assertions should include a message
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:31	JUnit assertions should include a message
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:37	Local variable 'testWeather' could be declared final
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:38	JUnit assertions should include a message
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:39	JUnit assertions should include a message
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:40	JUnit assertions should include a message
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:48	JUnit tests should include assert() or fail()
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:50	Local variable 'testWeather' could be declared final
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:58	Local variable 'allWeather' could be declared final
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:59	Local variable 'testWeather1' could be declared final
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:60	Local variable 'testWeather2' could be declared final
+src/com/globalresolvewws/test/DatabaseHandlerTest.java:78	JUnit 4 tests that clean up tests should use the @After annotation
+src/com/globalresolvewws/test/RiskModelTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+src/com/globalresolvewws/test/RiskModelTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+src/com/globalresolvewws/test/RiskModelTest.java:5	Avoid unused imports such as 'java.util.ArrayList'
+src/com/globalresolvewws/test/RiskModelTest.java:5	Avoid unused imports such as 'java.util.ArrayList'
+src/com/globalresolvewws/test/RiskModelTest.java:9	Avoid unused imports such as 'com.globalresolvewws'
+src/com/globalresolvewws/test/RiskModelTest.java:17	Avoid variables with short names like RM
+src/com/globalresolvewws/test/RiskModelTest.java:17	Local variable 'RM' could be declared final
+src/com/globalresolvewws/test/RiskModelTest.java:21	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherServiceTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+src/com/globalresolvewws/test/WeatherServiceTest.java:3	Avoid unused imports such as 'org.junit.Assert'
+src/com/globalresolvewws/test/WeatherServiceTest.java:9	Avoid unused imports such as 'com.globalresolvewws'
+src/com/globalresolvewws/test/WeatherServiceTest.java:9	Avoid unused imports such as 'com.globalresolvewws'
+src/com/globalresolvewws/test/WeatherServiceTest.java:17	Avoid variables with short names like WS
+src/com/globalresolvewws/test/WeatherServiceTest.java:17	Local variable 'WS' could be declared final
+src/com/globalresolvewws/test/WeatherServiceTest.java:18	Avoid variables with short names like al
+src/com/globalresolvewws/test/WeatherServiceTest.java:18	Local variable 'al' could be declared final
+src/com/globalresolvewws/test/WeatherServiceTest.java:19	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherTest.java:22	A method/constructor shouldn't explicitly throw java.lang.Exception
+src/com/globalresolvewws/test/WeatherTest.java:22	A method/constructor shouldn't explicitly throw java.lang.Exception
+src/com/globalresolvewws/test/WeatherTest.java:25	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherTest.java:26	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherTest.java:29	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherTest.java:30	JUnit assertions should include a message
+src/com/globalresolvewws/test/WeatherTest.java:31	JUnit assertions should include a message
