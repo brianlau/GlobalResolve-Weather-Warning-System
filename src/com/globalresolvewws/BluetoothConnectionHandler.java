@@ -104,7 +104,10 @@ public class BluetoothConnectionHandler {
      * @param device  The BluetoothDevice to connect
      */
     public synchronized void connect(BluetoothDevice device) {
-        if (D) Log.d(TAG, "connect to: " + device);
+        if (D)
+        	{
+        	Log.d(TAG, "connect to: " + device);
+        	}
 
         // Cancel any thread attempting to make a connection
         if (mState == STATE_CONNECTING) {
@@ -125,7 +128,9 @@ public class BluetoothConnectionHandler {
      * @param device  The BluetoothDevice that has been connected
      */
     public synchronized void connected(BluetoothSocket socket, BluetoothDevice device) {
-        if (D) Log.d(TAG, "connected");
+        if (D) {
+        	Log.d(TAG, "connected");
+        }
 
         // Cancel the thread that completed the connection
         if (mConnectThread != null) {mConnectThread.cancel(); mConnectThread = null;}
@@ -154,7 +159,7 @@ public class BluetoothConnectionHandler {
      * Stop all threads
      */
     public synchronized void stop() {
-        if (D) Log.d(TAG, "stop");
+        if (D){ Log.d(TAG, "stop");}
         if (mConnectThread != null) {mConnectThread.cancel(); mConnectThread = null;}
         if (mConnectedThread != null) {mConnectedThread.cancel(); mConnectedThread = null;}
         if (mAcceptThread != null) {mAcceptThread.cancel(); mAcceptThread = null;}

@@ -3,12 +3,15 @@ package com.globalresolvewws;
 import java.text.DecimalFormat;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.widget.TextView;
  
@@ -77,7 +80,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 					
 					mMarkerOptions.position(point);
 					
-					double calc = CalculationByDistance(currLocation, point);
+					double calc = calculationByDistance(currLocation, point);
 					
 					mMarkerOptions.title(point.latitude+ " : " + point.longitude + "Distance: " + Double.valueOf(calc));
 					
@@ -90,6 +93,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 				}
 			});
         }
+
     }
     @Override
     public void onLocationChanged(Location location) {
@@ -116,7 +120,18 @@ public class MapScreen extends FragmentActivity implements LocationListener {
  
     }
     
-    private double CalculationByDistance(LatLng StartP, LatLng EndP) {
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event){
+    	if((keyCode == KeyEvent.KEYCODE_BACK)){
+			Intent BaseScreen = new Intent(getApplicationContext(),
+					BaseScreen.class);
+			startActivity(BaseScreen);
+			finish();
+    	}
+    	return super.onKeyDown(keyCode, event);
+    }
+    
+    private double calculationByDistance(LatLng StartP, LatLng EndP) {
         int Radius=6371;//radius of earth in Km         
         double lat1 = StartP.latitude;
         double lat2 = EndP.latitude;
@@ -124,19 +139,19 @@ public class MapScreen extends FragmentActivity implements LocationListener {
         double lon2 = EndP.longitude;
         double dLat = Math.toRadians(lat2-lat1);
         double dLon = Math.toRadians(lon2-lon1);
-        double a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+        double area = Math.sin(dLat/2) * Math.sin(dLat/2) +
         Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
         Math.sin(dLon/2) * Math.sin(dLon/2);
-        double c = 2 * Math.asin(Math.sqrt(a));
-        double valueResult= Radius*c;
-        double km=valueResult/1;
+        double circumference = 2 * Math.asin(Math.sqrt(area));
+        double valueResult= Radius*circumference;
+        double kilometer=valueResult/1;
         DecimalFormat newFormat = new DecimalFormat("####");
-        int kmInDec =  Integer.valueOf(newFormat.format(km));
+        int kmInDec =  Integer.valueOf(newFormat.format(kilometer));
         double meter=valueResult%1000;
         int meterInDec= Integer.valueOf(newFormat.format(meter));
-       // Log.i("Radius Value",""+valueResult+"   KM  "+kmInDec+" Meter   "+meterInDec);
+        Log.i("Radius Value",""+valueResult+"   KM  "+kmInDec+" Meter   "+meterInDec);
 
-        return Radius * c;
+        return valueResult;
      }
 
     @Override

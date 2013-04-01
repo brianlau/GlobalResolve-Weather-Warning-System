@@ -188,8 +188,7 @@ public class BaseScreen extends Activity {
 	}
 
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		switch (requestCode) {
-		case REQUEST_CONNECT_DEVICE:
+		if(requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {
 				// Get the device MAC address
@@ -200,8 +199,8 @@ public class BaseScreen extends Activity {
 				// Attempt to connect to the device
 				mConnectionHandler.connect(device);
 			}
-			break;
-		case REQUEST_ENABLE_BT:
+		}
+		else if(requestCode == REQUEST_ENABLE_BT){
 			// When the request to enable Bluetooth returns
 			if (resultCode == Activity.RESULT_OK) {
 				// Bluetooth is now enabled, so set up a chat session
@@ -223,13 +222,13 @@ public class BaseScreen extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.scan:
+		if (item.getItemId() == R.id.scan) {
 			// Launch the DeviceListActivity to see devices and do scan
 			Intent serverIntent = new Intent(this, DeviceListActivity.class);
 			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
 			return true;
-		case R.id.discoverable:
+		}
+		else if( item.getItemId() == R.id.discoverable){
 			// Ensure this device is discoverable by others
 			ensureDiscoverable();
 			return true;

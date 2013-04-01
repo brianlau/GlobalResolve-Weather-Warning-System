@@ -1,7 +1,6 @@
 package com.globalresolvewws.test;
 
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import android.test.AndroidTestCase;
@@ -12,11 +11,6 @@ public class WeatherTest extends AndroidTestCase {
 	private static Weather weather1;
 	private static Weather weather2;
 
-	@BeforeClass
-	public static void beforeClass(){
-		weather1 = new Weather();
-		weather2 = new Weather();
-	}
 	
 	@Test
 	public void testConstructor() throws Exception {

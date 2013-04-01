@@ -13,7 +13,7 @@ public class DatabaseHandlerTest extends AndroidTestCase {
 
 	private DatabaseHandler db;
 	private Weather weather1;
-	private Context context;
+	private Context context = getContext();
 
 	@Override
 	public void setUp() throws Exception {

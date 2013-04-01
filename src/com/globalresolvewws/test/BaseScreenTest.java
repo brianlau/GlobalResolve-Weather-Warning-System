@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({BaseScreen.class})
+@PrepareForTest({BaseScreen.class, MapScreen.class, BluetoothAdapter.class})
 public class BaseScreenTest extends
 		ActivityInstrumentationTestCase2<BaseScreen> {
 
@@ -51,12 +51,13 @@ public class BaseScreenTest extends
 		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 	}
 
-	public void testPresetUp() {
+	public void testPreConditions() {
 		assertNotNull(mActivity);
 		assertTrue(mImageView != null);
 		assertTrue(mTextView != null);
 		assertTrue(mMapViewButton != null);
 	}
+	
 	@UiThreadTest
 	public void testMainActivityUI() {
 		mActivity.runOnUiThread(new Runnable() {
