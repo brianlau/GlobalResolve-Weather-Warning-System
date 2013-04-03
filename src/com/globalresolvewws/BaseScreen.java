@@ -1,6 +1,5 @@
 package com.globalresolvewws;
 
-import com.globalresolvewws.R;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -72,12 +71,12 @@ public class BaseScreen extends Activity {
 	public void onStart() {
 		super.onStart();
 
-		Button btnMapView = (Button) findViewById(R.id.buttonMapView);
+		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Intent mapScreen = new Intent(getApplicationContext(),
+				final Intent mapScreen = new Intent(getApplicationContext(),
 						MapScreen.class);
 				startActivity(mapScreen);
 				finish();
@@ -156,30 +155,30 @@ public class BaseScreen extends Activity {
 		// not enabled during onStart(), so we were paused to enable it...
 		// onResume() will be called when ACTION_REQUEST_ENABLE activity
 		// returns.
-		if (mConnectionHandler != null) {
+		if (mConnectionHandler != null
+				&& mConnectionHandler.getState() == BluetoothConnectionHandler.STATE_NONE) {
 			// Only if the state is STATE_NONE, do we know that we haven't
 			// started already
-			if (mConnectionHandler.getState() == BluetoothConnectionHandler.STATE_NONE) {
-				// Start the Bluetooth chat services
-				mConnectionHandler.start();
-			}
+			// Start the Bluetooth chat services
+			mConnectionHandler.start();
 		}
 
 	}
 
 	@Override
 	public void onDestroy() {
-		super.onDestroy();
 		if (mConnectionHandler != null) {
 			mConnectionHandler.stop();
 		}
+		super.onDestroy();
 	}
 
 	private void ensureDiscoverable() {
-		if (D)
+		if (D) {
 			Log.d(TAG, "ensure discoverable");
+		}
 		if (mbtA.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
-			Intent discoverableIntent = new Intent(
+			final Intent discoverableIntent = new Intent(
 					BluetoothAdapter.ACTION_REQUEST_DISCOVERABLE);
 			discoverableIntent.putExtra(
 					BluetoothAdapter.EXTRA_DISCOVERABLE_DURATION, 300);
@@ -188,19 +187,18 @@ public class BaseScreen extends Activity {
 	}
 
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == REQUEST_CONNECT_DEVICE) {
+		if (requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {
 				// Get the device MAC address
-				String address = data.getExtras().getString(
-						DeviceListActivity.EXTRA_DEVICE_ADDRESS);
+				final String address = data.getExtras().getString(
+						DeviceListActivity.extraDeviceAddress);
 				// Get the BLuetoothDevice object
 				BluetoothDevice device = mbtA.getRemoteDevice(address);
 				// Attempt to connect to the device
 				mConnectionHandler.connect(device);
 			}
-		}
-		else if(requestCode == REQUEST_ENABLE_BT){
+		} else if (requestCode == REQUEST_ENABLE_BT) {
 			// When the request to enable Bluetooth returns
 			if (resultCode == Activity.RESULT_OK) {
 				// Bluetooth is now enabled, so set up a chat session
@@ -227,8 +225,7 @@ public class BaseScreen extends Activity {
 			Intent serverIntent = new Intent(this, DeviceListActivity.class);
 			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
 			return true;
-		}
-		else if( item.getItemId() == R.id.discoverable){
+		} else if (item.getItemId() == R.id.discoverable) {
 			// Ensure this device is discoverable by others
 			ensureDiscoverable();
 			return true;

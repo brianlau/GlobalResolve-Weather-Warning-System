@@ -6,41 +6,35 @@ body { background-color: white; font-family:verdana, arial, helvetica, geneva; f
 #RowColor1 { background-color: #eeeeee; }
 #RowColor2 { background-color: white; }
 --></style><body><center><table border="0" width="80%"><tr id=TableHeader><td colspan="2"><font class=title>&nbsp;src/com/globalresolvewws/BaseScreen.java</font></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>3&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>No need to import a type that lives in the same package</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>19&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>This class has too many methods, consider refactoring it.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>22&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like D</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>25&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like MESSAGE_STATE_CHANGE</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>28&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like MESSAGE_DEVICE_NAME</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>36&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like REQUEST_CONNECT_DEVICE</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>40&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mConnectedDeviceName</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>40&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>42&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>44&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mConnectionHandler</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>44&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>46&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>49&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'savedInstanceState' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>75&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'btnMapView' could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>79&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>79&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'v' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>80&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'mapScreen' could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>93&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid if (x != y) ..; else ..;</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>94&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'enableIntent' could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>111&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>113&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'msg' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>114&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Switch statements should have a default label</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>116&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Switch statements should have a default label</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>147&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Overriding method merely calls super</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>153&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Use block level rather than method level synchronization</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>162&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>These nested if statements could be combined</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>173&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>super should be called at the end of the method</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>179&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid using if statements without curly braces</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>180&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Log.d calls should be protected by checking Config.LOGD first</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>182&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'discoverableIntent' could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>190&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'data' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>190&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'requestCode' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>195&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'address' could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>229&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>A method should have only one exit point, and that should be the last statement in the method</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>234&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>A method should have only one exit point, and that should be the last statement in the method</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>18&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>This class has too many methods, consider refactoring it.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>21&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like D</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>24&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like MESSAGE_STATE_CHANGE</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>27&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like MESSAGE_DEVICE_NAME</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>35&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like REQUEST_CONNECT_DEVICE</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>39&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mConnectedDeviceName</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>39&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>41&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>43&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mConnectionHandler</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>43&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>45&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>48&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'savedInstanceState' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>78&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>78&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'v' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>92&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid if (x != y) ..; else ..;</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>93&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'enableIntent' could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>110&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>112&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'msg' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>113&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Switch statements should have a default label</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>115&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Switch statements should have a default label</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>146&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Overriding method merely calls super</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>152&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Use block level rather than method level synchronization</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>178&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Log.d calls should be protected by checking Config.LOGD first</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>189&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'data' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>189&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'requestCode' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>197&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'device' could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>225&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'serverIntent' could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>227&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>A method should have only one exit point, and that should be the last statement in the method</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>231&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>A method should have only one exit point, and that should be the last statement in the method</font></td></tr>
 </table></br><table border="0" width="80%"><tr id=TableHeader><td colspan="2"><font class=title>&nbsp;src/com/globalresolvewws/BluetoothConnectionHandler.java</font></tr>
 <tr id=RowColor2><td width="50" align="right"><font class=body>35&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>This class has too many methods, consider refactoring it.</font></td></tr>
 <tr id=RowColor1><td width="50" align="right"><font class=body>39&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like D</font></td></tr>
@@ -115,37 +109,34 @@ body { background-color: white; font-family:verdana, arial, helvetica, geneva; f
 <tr id=RowColor2><td width="50" align="right"><font class=body>125&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid instantiating new objects inside loops</font></td></tr>
 </table></br><table border="0" width="80%"><tr id=TableHeader><td colspan="2"><font class=title>&nbsp;src/com/globalresolvewws/DeviceListActivity.java</font></tr>
 <tr id=RowColor2><td width="50" align="right"><font class=body>47&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like D</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>50&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like EXTRA_DEVICE_ADDRESS</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>50&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>The field name indicates a constant but its modifiers do not</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>50&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Variables should start with a lowercase character</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>50&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>53&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mPairedDevicesArrayAdapter</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Perhaps 'mPairedDevicesArrayAdapter' could be replaced by a local variable.</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>55&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mNewDevicesArrayAdapter</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>55&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>58&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like savedInstanceState</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>58&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'savedInstanceState' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>69&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'scanButton' could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>71&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>71&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'v' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>83&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'pairedListView' could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>88&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like newDevicesListView</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>88&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'newDevicesListView' could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>104&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'pairedDevices' could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>107&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>113&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'noDevices' could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>128&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>super should be called at the end of the method</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>137&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Log.d calls should be protected by checking Config.LOGD first</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>157&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>157&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Private field 'mDeviceClickListener' could be made final; it is only initialized in the declaration or constructor.</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like av</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'arg2' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'arg3' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor2><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'av' is not assigned and could be declared final</font></td></tr>
-<tr id=RowColor1><td width="50" align="right"><font class=body>178&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>50&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like extraDeviceAddress</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>53&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mPairedDevicesArrayAdapter</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>54&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Perhaps 'mPairedDevicesArrayAdapter' could be replaced by a local variable.</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>55&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like mNewDevicesArrayAdapter</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>55&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>58&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like savedInstanceState</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>58&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'savedInstanceState' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>69&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'scanButton' could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>71&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>71&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'v' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>83&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'pairedListView' could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>88&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid excessively long variable names like newDevicesListView</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>88&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'newDevicesListView' could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>104&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'pairedDevices' could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>107&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Substitute calls to size() == 0 (or size() != 0) with calls to isEmpty()</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>113&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Local variable 'noDevices' could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>128&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>super should be called at the end of the method</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>137&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Log.d calls should be protected by checking Config.LOGD first</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>157&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>157&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Private field 'mDeviceClickListener' could be made final; it is only initialized in the declaration or constructor.</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like av</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Avoid variables with short names like v</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'arg2' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'arg3' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor1><td width="50" align="right"><font class=body>158&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Parameter 'av' is not assigned and could be declared final</font></td></tr>
+<tr id=RowColor2><td width="50" align="right"><font class=body>178&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
 </table></br><table border="0" width="80%"><tr id=TableHeader><td colspan="2"><font class=title>&nbsp;src/com/globalresolvewws/MapScreen.java</font></tr>
 <tr id=RowColor2><td width="50" align="right"><font class=body>29&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Found non-transient, non-static member. Please mark as transient or provide accessors.</font></td></tr>
 <tr id=RowColor1><td width="50" align="right"><font class=body>29&nbsp;&nbsp;&nbsp;</font></td><td><font class=body>Use explicit scoping instead of the default package private level</font></td></tr>

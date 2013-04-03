@@ -1,39 +1,33 @@
 
-src/com/globalresolvewws/BaseScreen.java:3	No need to import a type that lives in the same package
-src/com/globalresolvewws/BaseScreen.java:19	This class has too many methods, consider refactoring it.
-src/com/globalresolvewws/BaseScreen.java:22	Avoid variables with short names like D
-src/com/globalresolvewws/BaseScreen.java:25	Avoid excessively long variable names like MESSAGE_STATE_CHANGE
-src/com/globalresolvewws/BaseScreen.java:28	Avoid excessively long variable names like MESSAGE_DEVICE_NAME
-src/com/globalresolvewws/BaseScreen.java:36	Avoid excessively long variable names like REQUEST_CONNECT_DEVICE
-src/com/globalresolvewws/BaseScreen.java:40	Avoid excessively long variable names like mConnectedDeviceName
-src/com/globalresolvewws/BaseScreen.java:40	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:42	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:44	Avoid excessively long variable names like mConnectionHandler
-src/com/globalresolvewws/BaseScreen.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:46	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:49	Parameter 'savedInstanceState' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:75	Local variable 'btnMapView' could be declared final
-src/com/globalresolvewws/BaseScreen.java:79	Avoid variables with short names like v
-src/com/globalresolvewws/BaseScreen.java:79	Parameter 'v' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:80	Local variable 'mapScreen' could be declared final
-src/com/globalresolvewws/BaseScreen.java:93	Avoid if (x != y) ..; else ..;
-src/com/globalresolvewws/BaseScreen.java:94	Local variable 'enableIntent' could be declared final
-src/com/globalresolvewws/BaseScreen.java:111	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:113	Parameter 'msg' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:114	Switch statements should have a default label
-src/com/globalresolvewws/BaseScreen.java:116	Switch statements should have a default label
-src/com/globalresolvewws/BaseScreen.java:147	Overriding method merely calls super
-src/com/globalresolvewws/BaseScreen.java:153	Use block level rather than method level synchronization
-src/com/globalresolvewws/BaseScreen.java:162	These nested if statements could be combined
-src/com/globalresolvewws/BaseScreen.java:173	super should be called at the end of the method
-src/com/globalresolvewws/BaseScreen.java:179	Avoid using if statements without curly braces
-src/com/globalresolvewws/BaseScreen.java:180	Log.d calls should be protected by checking Config.LOGD first
-src/com/globalresolvewws/BaseScreen.java:182	Local variable 'discoverableIntent' could be declared final
-src/com/globalresolvewws/BaseScreen.java:190	Parameter 'data' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:190	Parameter 'requestCode' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:195	Local variable 'address' could be declared final
-src/com/globalresolvewws/BaseScreen.java:229	A method should have only one exit point, and that should be the last statement in the method
-src/com/globalresolvewws/BaseScreen.java:234	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/BaseScreen.java:18	This class has too many methods, consider refactoring it.
+src/com/globalresolvewws/BaseScreen.java:21	Avoid variables with short names like D
+src/com/globalresolvewws/BaseScreen.java:24	Avoid excessively long variable names like MESSAGE_STATE_CHANGE
+src/com/globalresolvewws/BaseScreen.java:27	Avoid excessively long variable names like MESSAGE_DEVICE_NAME
+src/com/globalresolvewws/BaseScreen.java:35	Avoid excessively long variable names like REQUEST_CONNECT_DEVICE
+src/com/globalresolvewws/BaseScreen.java:39	Avoid excessively long variable names like mConnectedDeviceName
+src/com/globalresolvewws/BaseScreen.java:39	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:41	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:43	Avoid excessively long variable names like mConnectionHandler
+src/com/globalresolvewws/BaseScreen.java:43	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:45	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:48	Parameter 'savedInstanceState' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:78	Avoid variables with short names like v
+src/com/globalresolvewws/BaseScreen.java:78	Parameter 'v' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:92	Avoid if (x != y) ..; else ..;
+src/com/globalresolvewws/BaseScreen.java:93	Local variable 'enableIntent' could be declared final
+src/com/globalresolvewws/BaseScreen.java:110	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:112	Parameter 'msg' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:113	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:115	Switch statements should have a default label
+src/com/globalresolvewws/BaseScreen.java:146	Overriding method merely calls super
+src/com/globalresolvewws/BaseScreen.java:152	Use block level rather than method level synchronization
+src/com/globalresolvewws/BaseScreen.java:178	Log.d calls should be protected by checking Config.LOGD first
+src/com/globalresolvewws/BaseScreen.java:189	Parameter 'data' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:189	Parameter 'requestCode' is not assigned and could be declared final
+src/com/globalresolvewws/BaseScreen.java:197	Local variable 'device' could be declared final
+src/com/globalresolvewws/BaseScreen.java:225	Local variable 'serverIntent' could be declared final
+src/com/globalresolvewws/BaseScreen.java:227	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/BaseScreen.java:231	A method should have only one exit point, and that should be the last statement in the method
 src/com/globalresolvewws/BluetoothConnectionHandler.java:35	This class has too many methods, consider refactoring it.
 src/com/globalresolvewws/BluetoothConnectionHandler.java:39	Avoid variables with short names like D
 src/com/globalresolvewws/BluetoothConnectionHandler.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
@@ -105,10 +99,7 @@ src/com/globalresolvewws/DatabaseHandler.java:104	A method should have only one 
 src/com/globalresolvewws/DatabaseHandler.java:120	Avoid variables with short names like db
 src/com/globalresolvewws/DatabaseHandler.java:125	Avoid instantiating new objects inside loops
 src/com/globalresolvewws/DeviceListActivity.java:47	Avoid variables with short names like D
-src/com/globalresolvewws/DeviceListActivity.java:50	Avoid excessively long variable names like EXTRA_DEVICE_ADDRESS
-src/com/globalresolvewws/DeviceListActivity.java:50	The field name indicates a constant but its modifiers do not
-src/com/globalresolvewws/DeviceListActivity.java:50	Variables should start with a lowercase character
-src/com/globalresolvewws/DeviceListActivity.java:50	Variables that are not final should not contain underscores (except for underscores in standard prefix/suffix).
+src/com/globalresolvewws/DeviceListActivity.java:50	Avoid excessively long variable names like extraDeviceAddress
 src/com/globalresolvewws/DeviceListActivity.java:53	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/globalresolvewws/DeviceListActivity.java:54	Avoid excessively long variable names like mPairedDevicesArrayAdapter
 src/com/globalresolvewws/DeviceListActivity.java:54	Found non-transient, non-static member. Please mark as transient or provide accessors.
