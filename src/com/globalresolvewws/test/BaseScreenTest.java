@@ -48,10 +48,7 @@ public class BaseScreenTest extends
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
 		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
-		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-	}
-
-	public void testPreConditions() {
+		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();		
 		assertNotNull(mActivity);
 		assertTrue(mImageView != null);
 		assertTrue(mTextView != null);
