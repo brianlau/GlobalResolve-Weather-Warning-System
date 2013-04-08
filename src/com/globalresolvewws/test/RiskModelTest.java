@@ -19,6 +19,11 @@ public class RiskModelTest extends AndroidTestCase {
 		RM.calculateRisk(70, 60, 70, 0);
 		RM.checkForAlarm();
 		assertEquals(RM.checkForAlarm(), alarmEnum.MEDIUM);
+		RM.setCurrentRisk(1);
+		RM.checkForAlarm();
+		assertEquals(RM.checkForAlarm(), alarmEnum.LOW);
+		RM.setCurrentRisk(9);
+		RM.checkForAlarm();
+		assertEquals(RM.checkForAlarm(), alarmEnum.HIGH);
 	}
-
 }
