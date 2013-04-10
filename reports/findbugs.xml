@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="2.0.2" sequence="0" timestamp="1364847001016" analysisTimestamp="1364847001220" release="">
+<BugCollection version="2.0.2" sequence="0" timestamp="1365616482845" analysisTimestamp="1365616482863" release="">
   <Project projectName="">
     <Jar>C:\Users\Brian\git\GlobalResolve-Weather-Warning-System\bin</Jar>
     <AuxClasspathEntry>C:\Users\Brian\android-sdks\platforms\android-10\android.jar</AuxClasspathEntry>
@@ -10,12 +10,12 @@
   </Project>
   <BugInstance type="SF_SWITCH_NO_DEFAULT" priority="2" abbrev="SF" category="STYLE">
     <Class classname="com.globalresolvewws.BaseScreen$1">
-      <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="1" end="143" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
+      <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="1" end="142" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
     </Class>
     <Method classname="com.globalresolvewws.BaseScreen$1" name="handleMessage" signature="(Landroid/os/Message;)V" isStatic="false">
-      <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="114" end="143" startBytecode="0" endBytecode="364" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
+      <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="113" end="142" startBytecode="0" endBytecode="364" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
     </Method>
-    <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="114" end="140" startBytecode="4" endBytecode="215" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
+    <SourceLine classname="com.globalresolvewws.BaseScreen$1" start="113" end="139" startBytecode="4" endBytecode="215" sourcefile="BaseScreen.java" sourcepath="com/globalresolvewws/BaseScreen.java"/>
   </BugInstance>
   <BugInstance type="IS2_INCONSISTENT_SYNC" priority="2" abbrev="IS" category="MT_CORRECTNESS">
     <Class classname="com.globalresolvewws.BluetoothConnectionHandler">
@@ -46,7 +46,7 @@
     <Class classname="com.globalresolvewws.DeviceListActivity">
       <SourceLine classname="com.globalresolvewws.DeviceListActivity" start="44" end="178" sourcefile="DeviceListActivity.java" sourcepath="com/globalresolvewws/DeviceListActivity.java"/>
     </Class>
-    <Field classname="com.globalresolvewws.DeviceListActivity" name="EXTRA_DEVICE_ADDRESS" signature="Ljava/lang/String;" isStatic="true">
+    <Field classname="com.globalresolvewws.DeviceListActivity" name="extraDeviceAddress" signature="Ljava/lang/String;" isStatic="true">
       <SourceLine classname="com.globalresolvewws.DeviceListActivity" sourcefile="DeviceListActivity.java" sourcepath="com/globalresolvewws/DeviceListActivity.java"/>
     </Field>
     <SourceLine classname="com.globalresolvewws.DeviceListActivity" start="50" end="50" startBytecode="2" endBytecode="2" sourcefile="DeviceListActivity.java" sourcepath="com/globalresolvewws/DeviceListActivity.java"/>
@@ -72,6 +72,18 @@
       <SourceLine classname="com.globalresolvewws.Manifest$permission" start="11" end="11" sourcefile="Manifest.java" sourcepath="com/globalresolvewws/Manifest.java"/>
     </Class>
   </BugInstance>
+  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE">
+    <Class classname="com.globalresolvewws.MapScreen">
+      <SourceLine classname="com.globalresolvewws.MapScreen" start="26" end="173" sourcefile="MapScreen.java" sourcepath="com/globalresolvewws/MapScreen.java"/>
+    </Class>
+    <Method classname="com.globalresolvewws.MapScreen" name="onLocationChanged" signature="(Landroid/location/Location;)V" isStatic="false">
+      <SourceLine classname="com.globalresolvewws.MapScreen" start="100" end="120" startBytecode="0" endBytecode="197" sourcefile="MapScreen.java" sourcepath="com/globalresolvewws/MapScreen.java"/>
+    </Method>
+    <Field classname="com.globalresolvewws.MapScreen" name="currLocation" signature="Lcom/google/android/gms/maps/model/LatLng;" isStatic="true">
+      <SourceLine classname="com.globalresolvewws.MapScreen" sourcefile="MapScreen.java" sourcepath="com/globalresolvewws/MapScreen.java"/>
+    </Field>
+    <SourceLine classname="com.globalresolvewws.MapScreen" start="109" end="109" startBytecode="31" endBytecode="31" sourcefile="MapScreen.java" sourcepath="com/globalresolvewws/MapScreen.java"/>
+  </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$attr">
       <SourceLine classname="com.globalresolvewws.R$attr" start="11" end="11" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
@@ -79,37 +91,42 @@
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$drawable">
-      <SourceLine classname="com.globalresolvewws.R$drawable" start="13" end="13" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$drawable" start="131" end="131" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$id">
-      <SourceLine classname="com.globalresolvewws.R$id" start="18" end="18" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$id" start="136" end="136" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$layout">
-      <SourceLine classname="com.globalresolvewws.R$layout" start="37" end="37" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$layout" start="160" end="160" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$menu">
-      <SourceLine classname="com.globalresolvewws.R$menu" start="46" end="46" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$menu" start="169" end="169" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$raw">
-      <SourceLine classname="com.globalresolvewws.R$raw" start="49" end="49" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$raw" start="172" end="172" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$string">
-      <SourceLine classname="com.globalresolvewws.R$string" start="52" end="52" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$string" start="175" end="175" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
     <Class classname="com.globalresolvewws.R$style">
-      <SourceLine classname="com.globalresolvewws.R$style" start="78" end="78" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+      <SourceLine classname="com.globalresolvewws.R$style" start="263" end="263" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.globalresolvewws.R$styleable">
+      <SourceLine classname="com.globalresolvewws.R$styleable" start="288" end="532" sourcefile="R.java" sourcepath="com/globalresolvewws/R.java"/>
     </Class>
   </BugInstance>
   <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="1" abbrev="DLS" category="STYLE">
@@ -121,8 +138,8 @@
     </Method>
     <LocalVariable name="inSource" register="7" pc="78" role="LOCAL_VARIABLE_NAMED"/>
     <SourceLine classname="com.globalresolvewws.WeatherService" start="56" end="56" startBytecode="76" endBytecode="76" sourcefile="WeatherService.java" sourcepath="com/globalresolvewws/WeatherService.java"/>
-    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
     <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.DEAD_OBJECT_STORE" value="true"/>
     <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="inSource"/>
   </BugInstance>
   <BugInstance type="NM_METHOD_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
@@ -138,45 +155,56 @@
       <SourceLine classname="com.globalresolvewws.alarmEnum" start="1" end="10" sourcefile="alarmEnum.java" sourcepath="com/globalresolvewws/alarmEnum.java"/>
     </Class>
   </BugInstance>
-  <BugInstance type="URF_UNREAD_FIELD" priority="2" abbrev="UrF" category="PERFORMANCE">
-    <Class classname="com.globalresolvewws.test.BaseScreenTest">
-      <SourceLine classname="com.globalresolvewws.test.BaseScreenTest" start="33" end="69" sourcefile="BaseScreenTest.java" sourcepath="com/globalresolvewws/test/BaseScreenTest.java"/>
+  <BugInstance type="IJU_SETUP_NO_SUPER" priority="2" abbrev="IJU" category="CORRECTNESS">
+    <Class classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest">
+      <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="16" end="58" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
     </Class>
-    <Field classname="com.globalresolvewws.test.BaseScreenTest" name="mBluetoothAdapter" signature="Landroid/bluetooth/BluetoothAdapter;" isStatic="false">
-      <SourceLine classname="com.globalresolvewws.test.BaseScreenTest" sourcefile="BaseScreenTest.java" sourcepath="com/globalresolvewws/test/BaseScreenTest.java"/>
-    </Field>
-    <SourceLine classname="com.globalresolvewws.test.BaseScreenTest" start="51" end="51" startBytecode="72" endBytecode="72" sourcefile="BaseScreenTest.java" sourcepath="com/globalresolvewws/test/BaseScreenTest.java"/>
-  </BugInstance>
-  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE">
-    <Class classname="com.globalresolvewws.test.WeatherTest">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="10" end="79" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
-    </Class>
-    <Method classname="com.globalresolvewws.test.WeatherTest" name="testConstructor" signature="()V" isStatic="false">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="17" end="28" startBytecode="0" endBytecode="242" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
+    <Method classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" name="setUp" signature="()V" isStatic="false">
+      <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="25" end="47" startBytecode="0" endBytecode="93" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
     </Method>
-    <Field classname="com.globalresolvewws.test.WeatherTest" name="weather1" signature="Lcom/globalresolvewws/Weather;" isStatic="true">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
-    </Field>
-    <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="17" end="17" startBytecode="24" endBytecode="24" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
-  </BugInstance>
-  <BugInstance type="ST_WRITE_TO_STATIC_FROM_INSTANCE_METHOD" priority="1" abbrev="ST" category="STYLE">
-    <Class classname="com.globalresolvewws.test.WeatherTest">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="10" end="79" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
-    </Class>
-    <Method classname="com.globalresolvewws.test.WeatherTest" name="testConstructor" signature="()V" isStatic="false">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="17" end="28" startBytecode="0" endBytecode="242" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
+    <Method classname="android.test.AndroidTestCase" name="setUp" signature="()V" isStatic="false" role="METHOD_OVERRIDDEN">
+      <SourceLine classname="android.test.AndroidTestCase" start="6" end="6" startBytecode="0" endBytecode="51" sourcefile="AndroidTestCase.java" sourcepath="android/test/AndroidTestCase.java"/>
     </Method>
-    <Field classname="com.globalresolvewws.test.WeatherTest" name="weather2" signature="Lcom/globalresolvewws/Weather;" isStatic="true">
-      <SourceLine classname="com.globalresolvewws.test.WeatherTest" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
-    </Field>
-    <SourceLine classname="com.globalresolvewws.test.WeatherTest" start="18" end="18" startBytecode="49" endBytecode="49" sourcefile="WeatherTest.java" sourcepath="com/globalresolvewws/test/WeatherTest.java"/>
+    <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="25" end="25" startBytecode="0" endBytecode="0" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
+  </BugInstance>
+  <BugInstance type="IJU_TEARDOWN_NO_SUPER" priority="2" abbrev="IJU" category="CORRECTNESS">
+    <Class classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest">
+      <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="16" end="58" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
+    </Class>
+    <Method classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" name="tearDown" signature="()V" isStatic="false">
+      <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="51" end="51" startBytecode="0" endBytecode="42" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
+    </Method>
+    <Method classname="android.test.AndroidTestCase" name="tearDown" signature="()V" isStatic="false" role="METHOD_OVERRIDDEN">
+      <SourceLine classname="android.test.AndroidTestCase" start="7" end="7" startBytecode="0" endBytecode="51" sourcefile="AndroidTestCase.java" sourcepath="android/test/AndroidTestCase.java"/>
+    </Method>
+    <SourceLine classname="com.globalresolvewws.test.BluetoothConnectionHandlerTest" start="51" end="51" startBytecode="0" endBytecode="0" sourcefile="BluetoothConnectionHandlerTest.java" sourcepath="com/globalresolvewws/test/BluetoothConnectionHandlerTest.java"/>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.google.android.gms.R$attr">
+      <SourceLine classname="com.google.android.gms.R$attr" start="53" end="53" sourcefile="R.java" sourcepath="com/google/android/gms/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.google.android.gms.R$id">
+      <SourceLine classname="com.google.android.gms.R$id" start="10" end="10" sourcefile="R.java" sourcepath="com/google/android/gms/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.google.android.gms.R$string">
+      <SourceLine classname="com.google.android.gms.R$string" start="17" end="17" sourcefile="R.java" sourcepath="com/google/android/gms/R.java"/>
+    </Class>
+  </BugInstance>
+  <BugInstance type="NM_CLASS_NAMING_CONVENTION" priority="2" abbrev="Nm" category="BAD_PRACTICE">
+    <Class classname="com.google.android.gms.R$styleable">
+      <SourceLine classname="com.google.android.gms.R$styleable" start="36" end="51" sourcefile="R.java" sourcepath="com/google/android/gms/R.java"/>
+    </Class>
   </BugInstance>
   <Errors errors="0" missingClasses="1">
     <MissingClass>java.rmi.Remote</MissingClass>
   </Errors>
-  <FindBugsSummary timestamp="Mon, 1 Apr 2013 13:10:01 -0700" total_classes="37" referenced_classes="246" total_bugs="20" total_size="1067" num_packages="2" vm_version="16.0-b13" cpu_seconds="22.43" clock_seconds="14.22" peak_mbytes="173.15" alloc_mbytes="888.94" gc_seconds="0.26" priority_2="16" priority_1="4">
-    <PackageStats package="com.globalresolvewws" total_bugs="17" total_types="31" total_size="890" priority_2="15" priority_1="2">
-      <ClassStats class="com.globalresolvewws.BaseScreen" sourceFile="BaseScreen.java" interface="false" size="112" bugs="0"/>
+  <FindBugsSummary timestamp="Wed, 10 Apr 2013 10:54:42 -0700" total_classes="45" referenced_classes="256" total_bugs="25" total_size="1233" num_packages="3" vm_version="16.0-b13" cpu_seconds="17.18" clock_seconds="10.38" peak_mbytes="176.74" alloc_mbytes="888.94" gc_seconds="0.18" priority_2="22" priority_1="3">
+    <PackageStats package="com.globalresolvewws" total_bugs="19" total_types="32" total_size="949" priority_2="16" priority_1="3">
+      <ClassStats class="com.globalresolvewws.BaseScreen" sourceFile="BaseScreen.java" interface="false" size="111" bugs="0"/>
       <ClassStats class="com.globalresolvewws.BaseScreen$1" sourceFile="BaseScreen.java" interface="false" size="24" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.BaseScreen$2" sourceFile="BaseScreen.java" interface="false" size="11" bugs="0"/>
       <ClassStats class="com.globalresolvewws.BluetoothConnectionHandler" sourceFile="BluetoothConnectionHandler.java" interface="false" size="105" bugs="0"/>
@@ -189,52 +217,59 @@
       <ClassStats class="com.globalresolvewws.DeviceListActivity$1" sourceFile="DeviceListActivity.java" interface="false" size="14" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.DeviceListActivity$2" sourceFile="DeviceListActivity.java" interface="false" size="18" bugs="0"/>
       <ClassStats class="com.globalresolvewws.DeviceListActivity$3" sourceFile="DeviceListActivity.java" interface="false" size="9" bugs="0"/>
-      <ClassStats class="com.globalresolvewws.Manifest" sourceFile="Manifest.java" interface="false" size="4" bugs="0"/>
+      <ClassStats class="com.globalresolvewws.Manifest" sourceFile="Manifest.java" interface="false" size="3" bugs="0"/>
       <ClassStats class="com.globalresolvewws.Manifest$permission" sourceFile="Manifest.java" interface="false" size="4" bugs="1" priority_2="1"/>
-      <ClassStats class="com.globalresolvewws.MapScreen" sourceFile="MapScreen.java" interface="false" size="73" bugs="0"/>
+      <ClassStats class="com.globalresolvewws.MapScreen" sourceFile="MapScreen.java" interface="false" size="74" bugs="1" priority_1="1"/>
       <ClassStats class="com.globalresolvewws.MapScreen$1" sourceFile="MapScreen.java" interface="false" size="14" bugs="0"/>
-      <ClassStats class="com.globalresolvewws.R" sourceFile="R.java" interface="false" size="4" bugs="0"/>
-      <ClassStats class="com.globalresolvewws.R$attr" sourceFile="R.java" interface="false" size="3" bugs="1" priority_2="1"/>
+      <ClassStats class="com.globalresolvewws.R" sourceFile="R.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.globalresolvewws.R$attr" sourceFile="R.java" interface="false" size="17" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.R$drawable" sourceFile="R.java" interface="false" size="6" bugs="1" priority_2="1"/>
-      <ClassStats class="com.globalresolvewws.R$id" sourceFile="R.java" interface="false" size="20" bugs="1" priority_2="1"/>
+      <ClassStats class="com.globalresolvewws.R$id" sourceFile="R.java" interface="false" size="25" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.R$layout" sourceFile="R.java" interface="false" size="10" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.R$menu" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.R$raw" sourceFile="R.java" interface="false" size="4" bugs="1" priority_2="1"/>
-      <ClassStats class="com.globalresolvewws.R$string" sourceFile="R.java" interface="false" size="27" bugs="1" priority_2="1"/>
+      <ClassStats class="com.globalresolvewws.R$string" sourceFile="R.java" interface="false" size="44" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.R$style" sourceFile="R.java" interface="false" size="5" bugs="1" priority_2="1"/>
+      <ClassStats class="com.globalresolvewws.R$styleable" sourceFile="R.java" interface="false" size="25" bugs="1" priority_2="1"/>
       <ClassStats class="com.globalresolvewws.RiskModel" sourceFile="RiskModel.java" interface="false" size="45" bugs="0"/>
       <ClassStats class="com.globalresolvewws.ServiceHandler" sourceFile="ServiceHandler.java" interface="false" size="29" bugs="0"/>
       <ClassStats class="com.globalresolvewws.Weather" sourceFile="Weather.java" interface="false" size="56" bugs="0"/>
       <ClassStats class="com.globalresolvewws.WeatherService" sourceFile="WeatherService.java" interface="false" size="20" bugs="2" priority_2="1" priority_1="1"/>
       <ClassStats class="com.globalresolvewws.alarmEnum" sourceFile="alarmEnum.java" interface="false" size="12" bugs="1" priority_2="1"/>
     </PackageStats>
-    <PackageStats package="com.globalresolvewws.test" total_bugs="3" total_types="6" total_size="177" priority_2="1" priority_1="2">
-      <ClassStats class="com.globalresolvewws.test.BaseScreenTest" sourceFile="BaseScreenTest.java" interface="false" size="31" bugs="1" priority_2="1"/>
+    <PackageStats package="com.globalresolvewws.test" total_bugs="2" total_types="8" total_size="215" priority_2="2">
+      <ClassStats class="com.globalresolvewws.test.BaseScreenTest" sourceFile="BaseScreenTest.java" interface="false" size="27" bugs="0"/>
       <ClassStats class="com.globalresolvewws.test.BaseScreenTest$1" sourceFile="BaseScreenTest.java" interface="false" size="8" bugs="0"/>
+      <ClassStats class="com.globalresolvewws.test.BluetoothConnectionHandlerTest" sourceFile="BluetoothConnectionHandlerTest.java" interface="false" size="18" bugs="2" priority_2="2"/>
+      <ClassStats class="com.globalresolvewws.test.BluetoothConnectionHandlerTest$1" sourceFile="BluetoothConnectionHandlerTest.java" interface="false" size="12" bugs="0"/>
       <ClassStats class="com.globalresolvewws.test.DatabaseHandlerTest" sourceFile="DatabaseHandlerTest.java" interface="false" size="61" bugs="0"/>
       <ClassStats class="com.globalresolvewws.test.RiskModelTest" sourceFile="RiskModelTest.java" interface="false" size="9" bugs="0"/>
       <ClassStats class="com.globalresolvewws.test.WeatherServiceTest" sourceFile="WeatherServiceTest.java" interface="false" size="8" bugs="0"/>
-      <ClassStats class="com.globalresolvewws.test.WeatherTest" sourceFile="WeatherTest.java" interface="false" size="60" bugs="2" priority_1="2"/>
+      <ClassStats class="com.globalresolvewws.test.WeatherTest" sourceFile="WeatherTest.java" interface="false" size="72" bugs="0"/>
+    </PackageStats>
+    <PackageStats package="com.google.android.gms" total_bugs="4" total_types="5" total_size="69" priority_2="4">
+      <ClassStats class="com.google.android.gms.R" sourceFile="R.java" interface="false" size="3" bugs="0"/>
+      <ClassStats class="com.google.android.gms.R$attr" sourceFile="R.java" interface="false" size="17" bugs="1" priority_2="1"/>
+      <ClassStats class="com.google.android.gms.R$id" sourceFile="R.java" interface="false" size="8" bugs="1" priority_2="1"/>
+      <ClassStats class="com.google.android.gms.R$string" sourceFile="R.java" interface="false" size="20" bugs="1" priority_2="1"/>
+      <ClassStats class="com.google.android.gms.R$styleable" sourceFile="R.java" interface="false" size="21" bugs="1" priority_2="1"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.EqualsOperandShouldHaveClassCompatibleWithThis" totalMilliseconds="1237" invocations="246" avgMicrosecondsPerInvocation="5028" maxMicrosecondsPerInvocation="1135199" standardDeviationMircosecondsPerInvocation="72211"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="1210" invocations="246" avgMicrosecondsPerInvocation="4919" maxMicrosecondsPerInvocation="996655" standardDeviationMircosecondsPerInvocation="63470"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1028" invocations="670" avgMicrosecondsPerInvocation="1535" maxMicrosecondsPerInvocation="86046" standardDeviationMircosecondsPerInvocation="5707"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="715" invocations="682" avgMicrosecondsPerInvocation="1049" maxMicrosecondsPerInvocation="210878" standardDeviationMircosecondsPerInvocation="8091"/>
-      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="648" invocations="155" avgMicrosecondsPerInvocation="4184" maxMicrosecondsPerInvocation="346791" standardDeviationMircosecondsPerInvocation="27931"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindOpenStream" totalMilliseconds="435" invocations="37" avgMicrosecondsPerInvocation="11766" maxMicrosecondsPerInvocation="360293" standardDeviationMircosecondsPerInvocation="58951"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindUnsatisfiedObligation" totalMilliseconds="360" invocations="37" avgMicrosecondsPerInvocation="9752" maxMicrosecondsPerInvocation="358097" standardDeviationMircosecondsPerInvocation="58057"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="296" invocations="246" avgMicrosecondsPerInvocation="1204" maxMicrosecondsPerInvocation="47072" standardDeviationMircosecondsPerInvocation="4596"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="284" invocations="140" avgMicrosecondsPerInvocation="2031" maxMicrosecondsPerInvocation="236975" standardDeviationMircosecondsPerInvocation="19945"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="282" invocations="155" avgMicrosecondsPerInvocation="1820" maxMicrosecondsPerInvocation="30676" standardDeviationMircosecondsPerInvocation="4173"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="262" invocations="246" avgMicrosecondsPerInvocation="1065" maxMicrosecondsPerInvocation="23698" standardDeviationMircosecondsPerInvocation="2679"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="262" invocations="165" avgMicrosecondsPerInvocation="1588" maxMicrosecondsPerInvocation="52829" standardDeviationMircosecondsPerInvocation="5244"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="233" invocations="155" avgMicrosecondsPerInvocation="1505" maxMicrosecondsPerInvocation="38152" standardDeviationMircosecondsPerInvocation="3719"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="226" invocations="287" avgMicrosecondsPerInvocation="790" maxMicrosecondsPerInvocation="73557" standardDeviationMircosecondsPerInvocation="4530"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="226" invocations="246" avgMicrosecondsPerInvocation="920" maxMicrosecondsPerInvocation="51937" standardDeviationMircosecondsPerInvocation="4134"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="208" invocations="168" avgMicrosecondsPerInvocation="1241" maxMicrosecondsPerInvocation="30455" standardDeviationMircosecondsPerInvocation="3099"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindRefComparison$SpecialTypeAnalysis" totalMilliseconds="195" invocations="116" avgMicrosecondsPerInvocation="1688" maxMicrosecondsPerInvocation="34874" standardDeviationMircosecondsPerInvocation="4968"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="189" invocations="155" avgMicrosecondsPerInvocation="1223" maxMicrosecondsPerInvocation="33640" standardDeviationMircosecondsPerInvocation="3000"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="1756" invocations="680" avgMicrosecondsPerInvocation="2583" maxMicrosecondsPerInvocation="587007" standardDeviationMircosecondsPerInvocation="26189"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="1620" invocations="692" avgMicrosecondsPerInvocation="2341" maxMicrosecondsPerInvocation="299542" standardDeviationMircosecondsPerInvocation="15220"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="547" invocations="170" avgMicrosecondsPerInvocation="3220" maxMicrosecondsPerInvocation="337771" standardDeviationMircosecondsPerInvocation="25838"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.UnconditionalValueDerefDataflowFactory" totalMilliseconds="419" invocations="170" avgMicrosecondsPerInvocation="2465" maxMicrosecondsPerInvocation="124710" standardDeviationMircosecondsPerInvocation="12794"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="305" invocations="256" avgMicrosecondsPerInvocation="1193" maxMicrosecondsPerInvocation="43513" standardDeviationMircosecondsPerInvocation="4138"/>
+      <ClassProfile name="edu.umd.cs.findbugs.ba.npe.NullDerefAndRedundantComparisonFinder" totalMilliseconds="299" invocations="170" avgMicrosecondsPerInvocation="1763" maxMicrosecondsPerInvocation="54411" standardDeviationMircosecondsPerInvocation="4653"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="293" invocations="256" avgMicrosecondsPerInvocation="1146" maxMicrosecondsPerInvocation="42943" standardDeviationMircosecondsPerInvocation="3900"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="273" invocations="256" avgMicrosecondsPerInvocation="1070" maxMicrosecondsPerInvocation="45074" standardDeviationMircosecondsPerInvocation="4396"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.LiveLocalStoreDataflowFactory" totalMilliseconds="242" invocations="153" avgMicrosecondsPerInvocation="1587" maxMicrosecondsPerInvocation="190659" standardDeviationMircosecondsPerInvocation="15385"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.ValueNumberDataflowFactory" totalMilliseconds="192" invocations="183" avgMicrosecondsPerInvocation="1052" maxMicrosecondsPerInvocation="31491" standardDeviationMircosecondsPerInvocation="2870"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.TypeDataflowFactory" totalMilliseconds="191" invocations="180" avgMicrosecondsPerInvocation="1064" maxMicrosecondsPerInvocation="22302" standardDeviationMircosecondsPerInvocation="2562"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.JavaClassAnalysisEngine" totalMilliseconds="190" invocations="298" avgMicrosecondsPerInvocation="639" maxMicrosecondsPerInvocation="32862" standardDeviationMircosecondsPerInvocation="2453"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.CFGFactory" totalMilliseconds="190" invocations="170" avgMicrosecondsPerInvocation="1118" maxMicrosecondsPerInvocation="23179" standardDeviationMircosecondsPerInvocation="2670"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.OverridingEqualsNotSymmetrical" totalMilliseconds="189" invocations="256" avgMicrosecondsPerInvocation="741" maxMicrosecondsPerInvocation="30991" standardDeviationMircosecondsPerInvocation="2887"/>
+      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="152" invocations="256" avgMicrosecondsPerInvocation="594" maxMicrosecondsPerInvocation="12061" standardDeviationMircosecondsPerInvocation="1563"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>

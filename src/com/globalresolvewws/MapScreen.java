@@ -10,7 +10,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.widget.TextView;
@@ -26,36 +25,36 @@ import com.google.android.gms.maps.GoogleMap.OnMapClickListener;
  
 public class MapScreen extends FragmentActivity implements LocationListener {
  
-    GoogleMap googleMap;
-    LatLng currLocation;
+    private static GoogleMap googleMap;
+    private static LatLng currLocation;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_screen);
         // Getting Google Play availability status
-        int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
+        final int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
  
         // Showing status
         if(status!=ConnectionResult.SUCCESS){ // Google Play Services are not available
  
             int requestCode = 10;
-            Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
+            final Dialog dialog = GooglePlayServicesUtil.getErrorDialog(status, this, requestCode);
             dialog.show();
  
         }else { // Google Play Services are available
  
             // Getting reference to the SupportMapFragment of activity_main.xml
-            SupportMapFragment fm = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+            final SupportMapFragment fragMap = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
  
             // Getting GoogleMap object from the fragment
-            googleMap = fm.getMap();
+            googleMap = fragMap.getMap();
  
             // Enabling MyLocation Layer of Google Map
             googleMap.setMyLocationEnabled(true);
  
             // Getting LocationManager object from System Service LOCATION_SERVICE
-            LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+            final LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
  
             // Creating a criteria object to retrieve provider
             Criteria criteria = new Criteria();
@@ -74,7 +73,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
             googleMap.setOnMapClickListener(new OnMapClickListener() {
 				
             	@Override
-				public void onMapClick(LatLng point) {
+				public void onMapClick(final LatLng point) {
 
 					MarkerOptions mMarkerOptions = new MarkerOptions();
 					
@@ -82,7 +81,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 					
 					double calc = calculationByDistance(currLocation, point);
 					
-					mMarkerOptions.title(point.latitude+ " : " + point.longitude + "Distance: " + Double.valueOf(calc));
+					mMarkerOptions.title(Double.valueOf(calc) + "km");
 					
 					googleMap.clear();
 					
@@ -96,7 +95,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 
     }
     @Override
-    public void onLocationChanged(Location location) {
+    public void onLocationChanged(final Location location) {
  
         TextView curr_Location = (TextView) findViewById(R.id.curr_location);
  
@@ -147,11 +146,8 @@ public class MapScreen extends FragmentActivity implements LocationListener {
         double kilometer=valueResult/1;
         DecimalFormat newFormat = new DecimalFormat("####");
         int kmInDec =  Integer.valueOf(newFormat.format(kilometer));
-        double meter=valueResult%1000;
-        int meterInDec= Integer.valueOf(newFormat.format(meter));
-        Log.i("Radius Value",""+valueResult+"   KM  "+kmInDec+" Meter   "+meterInDec);
 
-        return valueResult;
+        return kmInDec;
      }
 
     @Override

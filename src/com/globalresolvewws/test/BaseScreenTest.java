@@ -1,21 +1,14 @@
 package com.globalresolvewws.test;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import static org.powermock.api.easymock.PowerMock.mockStatic;
-import static org.powermock.api.easymock.PowerMock.replayAll;
-import static org.powermock.api.easymock.PowerMock.verifyAll;
-import static org.easymock.EasyMock.expect;
-
 import com.globalresolvewws.MapScreen;
-import com.globalresolvewws.R;
-import com.globalresolvewws.R.id;
 import com.globalresolvewws.BaseScreen;
 
 import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
 import android.test.ActivityInstrumentationTestCase2;
 import android.test.UiThreadTest;
 import android.widget.Button;
@@ -31,12 +24,12 @@ public class BaseScreenTest extends
 	private ImageView mImageView;
 	private TextView mTextView;
 	private Button mMapViewButton;
-	private BluetoothAdapter mBluetoothAdapter;
 
 	public BaseScreenTest() {
 		super("com.globalresovlewws", BaseScreen.class);
 	}
 
+	@Before
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
@@ -47,8 +40,7 @@ public class BaseScreenTest extends
 				.findViewById(com.globalresolvewws.R.id.imageView);
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
-		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
-		mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();		
+		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);	
 		assertNotNull(mActivity);
 		assertTrue(mImageView != null);
 		assertTrue(mTextView != null);
