@@ -15,7 +15,7 @@ public class WeatherServiceTest extends AndroidTestCase{
 	@Test
 	public void test() {
 		WeatherService WS = new WeatherService();
-		ArrayList<Weather> al = WS.Weather();
+		ArrayList<Weather> al = WS.weather();
 		assertNotNull(al);
 	}
 }

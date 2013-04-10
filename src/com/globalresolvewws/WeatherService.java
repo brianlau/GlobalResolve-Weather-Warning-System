@@ -24,7 +24,7 @@ public class WeatherService {
 	protected static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
 	
-	public ArrayList<Weather> Weather() 
+	public ArrayList<Weather> weather() 
 	{
 		/*** Create the request ***/
 		// Let's pick a location:

@@ -48,7 +48,7 @@ public int getRisk()
 public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAdder)
 {
 	WeatherService WS = new WeatherService();
-	Weather dayToConsider = WS.Weather().get(dayAdder);
+	Weather dayToConsider = WS.weather().get(dayAdder);
 	if(dayToConsider.getMaxTemp() > alarmHigh)
 	{
 		adders++;
