@@ -1,7 +1,5 @@
 package com.globalresolvewws.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,6 +20,7 @@ public class BluetoothConnectionHandlerTest extends AndroidTestCase {
 	@Override
 	@Before
 	public void setUp() throws Exception {
+		super.setUp();
 		context = getContext();
 		mConnectionHandler = new BluetoothConnectionHandler(context, mHandler);
 		mHandler = new Handler() {
@@ -48,6 +47,7 @@ public class BluetoothConnectionHandlerTest extends AndroidTestCase {
 
 	@After
 	public void tearDown() throws Exception {
+		super.tearDown();
 	}
 
 	@Test

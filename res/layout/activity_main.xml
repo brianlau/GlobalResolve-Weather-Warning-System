@@ -18,15 +18,6 @@
         android:focusable="true"
         android:gravity="center" />
 
-    <Button
-        android:id="@+id/buttonMapView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="23dp"
-        android:text="@string/mapView_Button" />
-
     <TextView
         android:id="@+id/temp_curr"
         android:layout_width="wrap_content"
@@ -38,5 +29,25 @@
         android:gravity="center"
         android:textColor="@android:color/white"
         android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/buttonMapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="45dp"
+        android:text="@string/mapView_Button" />
+
+    <Button
+        android:id="@+id/updateValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/buttonMapView"
+        android:layout_alignBottom="@+id/buttonMapView"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="45dp"
+        android:text="@string/update_values" />
 
 </RelativeLayout>

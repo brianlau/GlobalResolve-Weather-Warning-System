@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class BaseScreen extends Activity {
 	private BluetoothConnectionHandler mConnectionHandler = null;
 
 	private TextView mTitle;
+    private Button mUpdateButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -104,6 +106,14 @@ public class BaseScreen extends Activity {
 
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
+		 mUpdateButton = (Button) findViewById(R.id.button_send);
+	        mUpdateButton.setOnClickListener(new OnClickListener() {
+	            public void onClick(View v) {
+	                // Send a message using content of the edit text widget
+	                String message = "tc";
+	                sendMessage(message);
+	            }
+	        });
 		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
 	}
 
@@ -142,11 +152,24 @@ public class BaseScreen extends Activity {
 		}
 	};
 
-	@Override
-	public void onPause() {
-		super.onPause();
+	 /**
+     * Sends a message.
+     * @param message  A string of text to send.
+     */
+    private void sendMessage(String message) {
+        // Check that we're actually connected before trying anything
+        if (mConnectionHandler.getState() != BluetoothConnectionHandler.STATE_CONNECTED) {
+            Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-	}
+        // Check that there's actually something to send
+        if (message.length() > 0) {
+            // Get the message bytes and tell the BluetoothChatService to write
+            byte[] send = message.getBytes();
+            mConnectionHandler.write(send);
+        }
+    }
 
 	@Override
 	public synchronized void onResume() {
