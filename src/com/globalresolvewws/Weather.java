@@ -85,6 +85,10 @@ public class Weather {
  * @return Returns a string of the time this weather object was recorded
  */
 	public String getTime() {
+		if(time == null)
+		{
+			time = "";
+		}
 		return time;
 	}
 

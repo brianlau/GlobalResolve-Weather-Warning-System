@@ -21,9 +21,9 @@ import org.xml.sax.helpers.XMLReaderFactory;
 
 public class WeatherService {
 
-	protected static final String URL_SOURCE =
+	public static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
-	
+
 	public ArrayList<Weather> weather() 
 	{
 		/*** Create the request ***/
@@ -50,14 +50,14 @@ public class WeatherService {
 			// Tell that XML reader to use our special Handler
 			ServiceHandler ourSpecialHandler = new ServiceHandler();
 			xr.setContentHandler(ourSpecialHandler);
-
+			
 			// We have an InputStream, but let's just wrap it in
 			//  an InputSource (the SAX parser likes it that way)
 			InputSource inSource = new InputSource(in);
 			
 			//System.out.print(inSource);
 			// And parse it!
-			//xr.parse(inSource);
+			xr.parse(inSource);
 			return ourSpecialHandler.forecast;
 		} catch (IOException ioe) {
 			ioe.printStackTrace();

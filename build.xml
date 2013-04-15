@@ -67,7 +67,7 @@
             -pre-clean
     -->
    <!-- override "compile" target in platform android_rules.xml to include tested app's external libraries -->
-	
+
 <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
 
 <target name="findbugs">
