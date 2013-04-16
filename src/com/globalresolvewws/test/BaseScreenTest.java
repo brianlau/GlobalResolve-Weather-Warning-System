@@ -20,10 +20,10 @@ import android.widget.TextView;
 public class BaseScreenTest extends
 		ActivityInstrumentationTestCase2<BaseScreen> {
 
-	private BaseScreen mActivity;
-	private ImageView mImageView;
-	private TextView mTextView;
-	private Button mMapViewButton;
+	private BaseScreen mActivity = null;
+	private ImageView mImageView = null;
+	private TextView mTextView = null;
+	private Button mMapViewButton = null;
 
 	public BaseScreenTest() {
 		super("com.globalresovlewws", BaseScreen.class);
@@ -40,11 +40,11 @@ public class BaseScreenTest extends
 				.findViewById(com.globalresolvewws.R.id.imageView);
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
-		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);	
-		assertNotNull(mActivity);
-		assertTrue(mImageView != null);
-		assertTrue(mTextView != null);
-		assertTrue(mMapViewButton != null);
+		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
+		assertNotNull("Should Not Be Null",mActivity);
+		assertNotNull("Should not be null",mImageView);
+		assertNotNull("Should not be null",mTextView);
+		assertNotNull("Should not be null",mMapViewButton);
 	}
 	
 	@UiThreadTest

@@ -27,11 +27,9 @@ public class ServiceHandler extends DefaultHandler {
 	/*** Below are the three methods that we are extending ***/
 
 	public void startDocument() {
-		System.out.println("Start document");
     }
 
 	public void endDocument() {
-		System.out.println("End document");
 	}
 
 	// This is where all the work is happening:

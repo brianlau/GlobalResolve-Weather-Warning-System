@@ -1,10 +1,15 @@
 package com.globalresolvewws;
 
+import java.nio.charset.Charset;
+
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Config;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +24,6 @@ import android.bluetooth.*;
 public class BaseScreen extends Activity {
 	// Debugging
 	private static final String TAG = "Weather Warning";
-	private static final boolean D = true;
 
 	// Message types sent from the BluetoothChatService Handler
 	public static final int MESSAGE_STATE_CHANGE = 1;
@@ -44,10 +48,10 @@ public class BaseScreen extends Activity {
 	private BluetoothConnectionHandler mConnectionHandler = null;
 
 	private TextView mTitle;
-    private Button mUpdateButton;
+	private Button mUpdateButton;
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		// Set up the window layout
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
@@ -77,7 +81,7 @@ public class BaseScreen extends Activity {
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
-			public void onClick(View v) {
+			public void onClick(final View view) {
 				final Intent mapScreen = new Intent(getApplicationContext(),
 						MapScreen.class);
 				startActivity(mapScreen);
@@ -90,36 +94,36 @@ public class BaseScreen extends Activity {
 		if (mbtA == null) {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
-		} else {
-			if (!mbtA.isEnabled()) {
-				Intent enableIntent = new Intent(
-						BluetoothAdapter.ACTION_REQUEST_ENABLE);
-				startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-				// Otherwise, setup the session
-			} else {
-				if (mConnectionHandler == null) {
-					setupConnection();
-				}
-			}
+		} else if (mConnectionHandler == null) {
+			setupConnection();
+		} else if (!mbtA.isEnabled()) {
+			final Intent enableIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+			// Otherwise, setup the session
 		}
 	}
 
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
-		 mUpdateButton = (Button) findViewById(R.id.button_send);
-	        mUpdateButton.setOnClickListener(new OnClickListener() {
-	            public void onClick(View v) {
-	                // Send a message using content of the edit text widget
-	                String message = "tc";
-	                sendMessage(message);
-	            }
-	        });
-		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
+		if (Button.class.isInstance(mUpdateButton)) {
+			mUpdateButton = (Button) findViewById(R.id.button_send);
+			mUpdateButton.setOnClickListener(new OnClickListener() {
+				private String message;
+
+				@Override
+				public void onClick(final View view) {
+					message = "tc";
+					sendMessage(message);
+				}
+			});
+			mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
+		}
 	}
 
 	private final Handler mHandler = new Handler() {
 		@Override
-		public void handleMessage(Message msg) {
+		public void handleMessage(final Message msg) {
 			switch (msg.what) {
 			case MESSAGE_STATE_CHANGE:
 				switch (msg.arg1) {
@@ -133,6 +137,8 @@ public class BaseScreen extends Activity {
 				case BluetoothConnectionHandler.STATE_LISTEN:
 				case BluetoothConnectionHandler.STATE_NONE:
 					mTitle.setText(R.string.title_not_connected);
+					break;
+				default:
 					break;
 				}
 				break;
@@ -148,28 +154,34 @@ public class BaseScreen extends Activity {
 						msg.getData().getString(TOAST), Toast.LENGTH_SHORT)
 						.show();
 				break;
+			default:
+				break;
 			}
 		}
 	};
 
-	 /**
-     * Sends a message.
-     * @param message  A string of text to send.
-     */
-    private void sendMessage(String message) {
-        // Check that we're actually connected before trying anything
-        if (mConnectionHandler.getState() != BluetoothConnectionHandler.STATE_CONNECTED) {
-            Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT).show();
-            return;
-        }
+	/**
+	 * Sends a message.
+	 * 
+	 * @param message
+	 *            A string of text to send.
+	 */
+	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
+	private void sendMessage(final String message) {
+		// Check that we're actually connected before trying anything
+		if (mConnectionHandler.getState() != BluetoothConnectionHandler.STATE_CONNECTED) {
+			Toast.makeText(this, R.string.not_connected, Toast.LENGTH_SHORT)
+					.show();
+			return;
+		}
 
-        // Check that there's actually something to send
-        if (message.length() > 0) {
-            // Get the message bytes and tell the BluetoothChatService to write
-            byte[] send = message.getBytes();
-            mConnectionHandler.write(send);
-        }
-    }
+		// Check that there's actually something to send
+		if (message.length() > 0) {
+			// Get the message bytes and tell the BluetoothChatService to write
+			final byte[] send = message.getBytes(Charset.forName("UTF-8"));
+			mConnectionHandler.write(send);
+		}
+	}
 
 	@Override
 	public synchronized void onResume() {
@@ -197,7 +209,7 @@ public class BaseScreen extends Activity {
 	}
 
 	private void ensureDiscoverable() {
-		if (D) {
+		if (Config.LOGD) {
 			Log.d(TAG, "ensure discoverable");
 		}
 		if (mbtA.getScanMode() != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
@@ -209,7 +221,9 @@ public class BaseScreen extends Activity {
 		}
 	}
 
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+	@Override
+	public void onActivityResult(final int requestCode, final int resultCode,
+			final Intent data) {
 		if (requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {
@@ -217,7 +231,7 @@ public class BaseScreen extends Activity {
 				final String address = data.getExtras().getString(
 						DeviceListActivity.extraDeviceAddress);
 				// Get the BLuetoothDevice object
-				BluetoothDevice device = mbtA.getRemoteDevice(address);
+				final BluetoothDevice device = mbtA.getRemoteDevice(address);
 				// Attempt to connect to the device
 				mConnectionHandler.connect(device);
 			}
@@ -235,25 +249,27 @@ public class BaseScreen extends Activity {
 	}
 
 	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
+	public boolean onCreateOptionsMenu(final Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
+	public boolean onOptionsItemSelected(final MenuItem item) {
+		boolean isValid = false;
 		if (item.getItemId() == R.id.scan) {
 			// Launch the DeviceListActivity to see devices and do scan
-			Intent serverIntent = new Intent(this, DeviceListActivity.class);
+			final Intent serverIntent = new Intent(this,
+					DeviceListActivity.class);
 			startActivityForResult(serverIntent, REQUEST_CONNECT_DEVICE);
-			return true;
+			isValid = true;
 		} else if (item.getItemId() == R.id.discoverable) {
 			// Ensure this device is discoverable by others
 			ensureDiscoverable();
-			return true;
+			isValid = true;
 		}
-		return false;
+		return isValid;
 	}
 
 }

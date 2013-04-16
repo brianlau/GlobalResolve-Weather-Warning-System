@@ -1,33 +1,18 @@
 
-src/com/globalresolvewws/BaseScreen.java:18	This class has too many methods, consider refactoring it.
-src/com/globalresolvewws/BaseScreen.java:21	Avoid variables with short names like D
-src/com/globalresolvewws/BaseScreen.java:24	Avoid excessively long variable names like MESSAGE_STATE_CHANGE
-src/com/globalresolvewws/BaseScreen.java:27	Avoid excessively long variable names like MESSAGE_DEVICE_NAME
-src/com/globalresolvewws/BaseScreen.java:35	Avoid excessively long variable names like REQUEST_CONNECT_DEVICE
-src/com/globalresolvewws/BaseScreen.java:39	Avoid excessively long variable names like mConnectedDeviceName
-src/com/globalresolvewws/BaseScreen.java:39	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:41	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:43	Avoid excessively long variable names like mConnectionHandler
-src/com/globalresolvewws/BaseScreen.java:43	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:45	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:48	Parameter 'savedInstanceState' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:78	Avoid variables with short names like v
-src/com/globalresolvewws/BaseScreen.java:78	Parameter 'v' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:92	Avoid if (x != y) ..; else ..;
-src/com/globalresolvewws/BaseScreen.java:93	Local variable 'enableIntent' could be declared final
-src/com/globalresolvewws/BaseScreen.java:110	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/BaseScreen.java:112	Parameter 'msg' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:113	Switch statements should have a default label
-src/com/globalresolvewws/BaseScreen.java:115	Switch statements should have a default label
-src/com/globalresolvewws/BaseScreen.java:146	Overriding method merely calls super
-src/com/globalresolvewws/BaseScreen.java:152	Use block level rather than method level synchronization
-src/com/globalresolvewws/BaseScreen.java:178	Log.d calls should be protected by checking Config.LOGD first
-src/com/globalresolvewws/BaseScreen.java:189	Parameter 'data' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:189	Parameter 'requestCode' is not assigned and could be declared final
-src/com/globalresolvewws/BaseScreen.java:197	Local variable 'device' could be declared final
-src/com/globalresolvewws/BaseScreen.java:225	Local variable 'serverIntent' could be declared final
-src/com/globalresolvewws/BaseScreen.java:227	A method should have only one exit point, and that should be the last statement in the method
-src/com/globalresolvewws/BaseScreen.java:231	A method should have only one exit point, and that should be the last statement in the method
+src/com/globalresolvewws/BaseScreen.java:24	This class has too many methods, consider refactoring it.
+src/com/globalresolvewws/BaseScreen.java:29	Avoid excessively long variable names like MESSAGE_STATE_CHANGE
+src/com/globalresolvewws/BaseScreen.java:32	Avoid excessively long variable names like MESSAGE_DEVICE_NAME
+src/com/globalresolvewws/BaseScreen.java:40	Avoid excessively long variable names like REQUEST_CONNECT_DEVICE
+src/com/globalresolvewws/BaseScreen.java:44	Avoid excessively long variable names like mConnectedDeviceName
+src/com/globalresolvewws/BaseScreen.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:46	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:48	Avoid excessively long variable names like mConnectionHandler
+src/com/globalresolvewws/BaseScreen.java:48	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:50	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:51	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/BaseScreen.java:187	Use block level rather than method level synchronization
+src/com/globalresolvewws/BaseScreen.java:260	Found 'DD'-anomaly for variable 'isValid' (lines '260'-'266').
+src/com/globalresolvewws/BaseScreen.java:260	Found 'DD'-anomaly for variable 'isValid' (lines '260'-'270').
 src/com/globalresolvewws/BluetoothConnectionHandler.java:35	This class has too many methods, consider refactoring it.
 src/com/globalresolvewws/BluetoothConnectionHandler.java:39	Avoid variables with short names like D
 src/com/globalresolvewws/BluetoothConnectionHandler.java:44	Found non-transient, non-static member. Please mark as transient or provide accessors.
@@ -153,16 +138,20 @@ src/com/globalresolvewws/RiskModel.java:81	Avoid using if...else statements with
 src/com/globalresolvewws/ServiceHandler.java:18	Avoid using implementation types like 'ArrayList'; use the interface instead
 src/com/globalresolvewws/ServiceHandler.java:18	Avoid using implementation types like 'ArrayList'; use the interface instead
 src/com/globalresolvewws/ServiceHandler.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/ServiceHandler.java:22	Avoid unnecessary constructors - the compiler will generate these for you
-src/com/globalresolvewws/ServiceHandler.java:29	Parameter 'atts' is not assigned and could be declared final
-src/com/globalresolvewws/ServiceHandler.java:29	Parameter 'name' is not assigned and could be declared final
-src/com/globalresolvewws/ServiceHandler.java:29	Parameter 'qName' is not assigned and could be declared final
-src/com/globalresolvewws/ServiceHandler.java:29	Parameter 'uri' is not assigned and could be declared final
-src/com/globalresolvewws/ServiceHandler.java:30	Local variable 'entry' could be declared final
-src/com/globalresolvewws/ServiceHandler.java:32	Local variable 'day' could be declared final
-src/com/globalresolvewws/ServiceHandler.java:36	Local variable 'low' could be declared final
-src/com/globalresolvewws/ServiceHandler.java:40	Local variable 'high' could be declared final
-src/com/globalresolvewws/ServiceHandler.java:48	Local variable 'humid' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/ServiceHandler.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/ServiceHandler.java:23	Avoid unnecessary constructors - the compiler will generate these for you
+src/com/globalresolvewws/ServiceHandler.java:29	Document empty method
+src/com/globalresolvewws/ServiceHandler.java:32	Document empty method
+src/com/globalresolvewws/ServiceHandler.java:36	Parameter 'atts' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:36	Parameter 'name' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:36	Parameter 'qName' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:36	Parameter 'uri' is not assigned and could be declared final
+src/com/globalresolvewws/ServiceHandler.java:39	Local variable 'day' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:44	Local variable 'low' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:49	Local variable 'high' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:58	Local variable 'humid' could be declared final
+src/com/globalresolvewws/ServiceHandler.java:59	Local variable 'humidval' could be declared final
 src/com/globalresolvewws/Weather.java:25	Document empty constructor
 src/com/globalresolvewws/Weather.java:37	Parameter 'humidity' is not assigned and could be declared final
 src/com/globalresolvewws/Weather.java:37	Parameter 'latitude' is not assigned and could be declared final
@@ -179,8 +168,6 @@ src/com/globalresolvewws/WeatherService.java:43	Local variable 'in' could be dec
 src/com/globalresolvewws/WeatherService.java:48	Avoid variables with short names like xr
 src/com/globalresolvewws/WeatherService.java:48	Local variable 'xr' could be declared final
 src/com/globalresolvewws/WeatherService.java:51	Local variable 'ourSpecialHandler' could be declared final
-src/com/globalresolvewws/WeatherService.java:56	Avoid unused local variables such as 'inSource'.
-src/com/globalresolvewws/WeatherService.java:56	Found 'DU'-anomaly for variable 'inSource' (lines '56'-'68').
 src/com/globalresolvewws/WeatherService.java:61	A method should have only one exit point, and that should be the last statement in the method
 src/com/globalresolvewws/WeatherService.java:63	Avoid printStackTrace(); use a logger call instead.
 src/com/globalresolvewws/WeatherService.java:65	Avoid printStackTrace(); use a logger call instead.
@@ -190,26 +177,16 @@ src/com/globalresolvewws/test/BaseScreenTest.java:24	Perhaps 'mImageView' could 
 src/com/globalresolvewws/test/BaseScreenTest.java:25	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/globalresolvewws/test/BaseScreenTest.java:25	Perhaps 'mTextView' could be replaced by a local variable.
 src/com/globalresolvewws/test/BaseScreenTest.java:26	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/test/BaseScreenTest.java:44	JUnit assertions should include a message
-src/com/globalresolvewws/test/BaseScreenTest.java:45	JUnit assertions should include a message
-src/com/globalresolvewws/test/BaseScreenTest.java:45	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
-src/com/globalresolvewws/test/BaseScreenTest.java:46	JUnit assertions should include a message
-src/com/globalresolvewws/test/BaseScreenTest.java:46	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
-src/com/globalresolvewws/test/BaseScreenTest.java:47	JUnit assertions should include a message
-src/com/globalresolvewws/test/BaseScreenTest.java:47	Use assertNull(x) instead of assertTrue(x==null), or assertNotNull(x) vs assertFalse(x==null)
 src/com/globalresolvewws/test/BaseScreenTest.java:50	JUnit 4 tests that execute tests should use the @Test annotation
 src/com/globalresolvewws/test/BaseScreenTest.java:51	JUnit tests should include assert() or fail()
 src/com/globalresolvewws/test/BaseScreenTest.java:52	To be compliant to J2EE, a webapp should not use any thread.
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:3	Avoid unused imports such as 'org.junit.Assert'
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:3	Avoid unused imports such as 'org.junit.Assert'
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:18	Avoid excessively long variable names like mConnectionHandler
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:16	Avoid excessively long variable names like mConnectionHandler
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:16	Found non-transient, non-static member. Please mark as transient or provide accessors.
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:17	Found non-transient, non-static member. Please mark as transient or provide accessors.
 src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:18	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:19	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:20	Found non-transient, non-static member. Please mark as transient or provide accessors.
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:29	Parameter 'msg' is not assigned and could be declared final
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:30	Switch statements should have a default label
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:32	Switch statements should have a default label
-src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:50	Document empty method
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:28	Parameter 'msg' is not assigned and could be declared final
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:29	Switch statements should have a default label
+src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:31	Switch statements should have a default label
 src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:55	JUnit assertions should include a message
 src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:56	JUnit assertions should include a message
 src/com/globalresolvewws/test/BluetoothConnectionHandlerTest.java:57	JUnit assertions should include a message

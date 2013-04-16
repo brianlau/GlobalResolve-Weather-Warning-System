@@ -69,10 +69,13 @@
    <!-- override "compile" target in platform android_rules.xml to include tested app's external libraries -->
 
 <taskdef name="findbugs" classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
-
 <target name="findbugs">
 	<mkdir dir="reports" />
-	<findbugs home="${findbugs.home}" output="xml" outputFile="reports/findbugs.xml" excludeFilter="findbugs-exclude.xml">
+	<findbugs home="${findbugs.home}" 
+	    output="xml" 
+	    outputFile="reports/findbugs.xml" 
+	    excludeFilter="findbugs-exclude.xml"
+	    reportLevel="medium">
 		<auxClasspath path="${project.target.android.jar}" />
 		<auxClasspath path="libs/android-support-v4.jar" />
 		<auxClasspath path="libs/google-play-services.jar" />
@@ -80,7 +83,6 @@
 		<class location="${out.dir}" />
 	</findbugs>
 </target>
-	
 
 
     <!-- Import the actual build file.
