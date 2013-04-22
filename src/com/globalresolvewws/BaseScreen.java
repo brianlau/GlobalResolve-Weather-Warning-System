@@ -94,31 +94,26 @@ public class BaseScreen extends Activity {
 		if (mbtA == null) {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
-		} else if (mConnectionHandler == null) {
-			setupConnection();
-		} else if (!mbtA.isEnabled()) {
-			final Intent enableIntent = new Intent(
-					BluetoothAdapter.ACTION_REQUEST_ENABLE);
-			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-			// Otherwise, setup the session
-		}
+		} if (!mbtA.isEnabled()) {
+            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+        // Otherwise, setup the chat session
+        } else {
+            if (mConnectionHandler == null) setupConnection();
+        }
 	}
 
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
-		if (Button.class.isInstance(mUpdateButton)) {
-			mUpdateButton = (Button) findViewById(R.id.button_send);
+			mUpdateButton = (Button) findViewById(R.id.updateValues);
 			mUpdateButton.setOnClickListener(new OnClickListener() {
 				private String message;
-
-				@Override
 				public void onClick(final View view) {
 					message = "tc";
 					sendMessage(message);
 				}
 			});
-			mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
-		}
+		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
 	}
 
 	private final Handler mHandler = new Handler() {
@@ -222,8 +217,8 @@ public class BaseScreen extends Activity {
 	}
 
 	@Override
-	public void onActivityResult(final int requestCode, final int resultCode,
-			final Intent data) {
+	public void onActivityResult(int requestCode, int resultCode,
+			 Intent data) {
 		if (requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {

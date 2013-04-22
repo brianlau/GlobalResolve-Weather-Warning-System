@@ -39,7 +39,7 @@ public class BluetoothConnectionHandler {
     private static final boolean D = true;
  
 	private static final String NAME = "Weather Warning";
-	private static final UUID MY_UUID = UUID.fromString("3217c690-8da7-11e2-9e96-0800200c9a66");
+	private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805f9b34fb");
 	
     private final BluetoothAdapter mAdapter;
     private final Handler mHandler;
