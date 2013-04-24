@@ -49,6 +49,7 @@ public class BaseScreen extends Activity {
 
 	private TextView mTitle;
 	private Button mUpdateButton;
+	private TextView tempCurr;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -64,6 +65,8 @@ public class BaseScreen extends Activity {
 		mTitle.setText(R.string.app_name);
 		mTitle = (TextView) findViewById(R.id.title_right_text);
 		setContentView(R.layout.activity_main);
+		tempCurr = (TextView) findViewById(R.id.temp_curr);
+		
 
 		// Bluetooth adapter
 		mbtA = BluetoothAdapter.getDefaultAdapter();
@@ -109,7 +112,7 @@ public class BaseScreen extends Activity {
 			mUpdateButton.setOnClickListener(new OnClickListener() {
 				private String message;
 				public void onClick(final View view) {
-					message = "tc";
+					message = "t";
 					sendMessage(message);
 				}
 			});
@@ -137,6 +140,12 @@ public class BaseScreen extends Activity {
 					break;
 				}
 				break;
+            case MESSAGE_READ:
+                byte[] readBuf = (byte[]) msg.obj;
+                // construct a string from the valid bytes in the buffer
+                String readMessage = new String(readBuf, 0, msg.arg1);
+                tempCurr.setText(readMessage);
+                break;
 			case MESSAGE_DEVICE_NAME:
 				// save the connected device's name
 				mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
@@ -218,7 +227,7 @@ public class BaseScreen extends Activity {
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode,
-			 Intent data) {
+			  Intent data) {
 		if (requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {
