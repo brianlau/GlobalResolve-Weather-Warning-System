@@ -19,7 +19,9 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-public class WeatherService {
+import android.os.AsyncTask;
+
+public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>>{
 
 	public static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
@@ -70,5 +72,10 @@ public class WeatherService {
 			ioe.printStackTrace();
 		} 
 		return null;
+	}
+
+	@Override
+	protected ArrayList<Weather> doInBackground(Void... params) {
+		return weather();
 	}
 }

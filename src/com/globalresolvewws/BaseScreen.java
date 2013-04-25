@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -125,17 +126,23 @@ public class BaseScreen extends Activity {
 				if (WS == null) {
 					WS = new WeatherService();
 				}
-				WeatherList = WS.weather();
+				try {
+					WeatherList = WS.execute().get();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} catch (ExecutionException e) {
+					e.printStackTrace();
+				}
 				serviceValue.setText("Current Risk(1-10): "
 						+ String.valueOf(quickDirtyRisk(WeatherList.get(0)))
 						+ "\n" + String.valueOf(WeatherList.get(1).getTime())
-						+ " Temp: "
+						+ " Risk: "
 						+ String.valueOf(quickDirtyRisk(WeatherList.get(1)))
 						+ "\n" + String.valueOf(WeatherList.get(2).getTime())
-						+ " Temp: "
+						+ " Risk: "
 						+ String.valueOf(quickDirtyRisk(WeatherList.get(2)))
 						+ "\n" + String.valueOf(WeatherList.get(3).getTime())
-						+ " Temp: "
+						+ " Risk: "
 						+ String.valueOf(quickDirtyRisk(WeatherList.get(3))));
 			}
 		});
