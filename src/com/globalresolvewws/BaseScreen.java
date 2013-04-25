@@ -1,8 +1,7 @@
 package com.globalresolvewws;
 
 import java.nio.charset.Charset;
-import java.io.*;
-import java.lang.Character;
+import java.util.ArrayList;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +25,7 @@ import android.bluetooth.*;
 public class BaseScreen extends Activity {
 	// Debugging
 	private static final String TAG = "Weather Warning";
-	
+
 	// Message types sent from the BluetoothChatService Handler
 	public static final int MESSAGE_STATE_CHANGE = 1;
 	public static final int MESSAGE_READ = 2;
@@ -49,11 +48,11 @@ public class BaseScreen extends Activity {
 	// Member object for the chat services
 	private BluetoothConnectionHandler mConnectionHandler = null;
 
-	
-	private WeatherService WS;
 	private TextView mTitle;
 	private Button mUpdateButton;
+	private Button sUpdateButton;
 	private TextView tempCurr;
+	private WeatherService WS;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -84,6 +83,7 @@ public class BaseScreen extends Activity {
 	public void onStart() {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
+		final Button btnServiceRefresh = (Button) findViewById(R.id.updateServiceValues);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -109,6 +109,18 @@ public class BaseScreen extends Activity {
         }
 	}
 
+	private void setupServiceConnection() {
+		//Start the service
+		sUpdateButton = (Button) findViewById(R.id.updateServiceValues);
+		sUpdateButton.setOnClickListener(new OnClickListener() {
+			public void onClick(final View view)
+			{
+				WS.weather();
+			}
+		});
+	}
+	
+	
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
 			mUpdateButton = (Button) findViewById(R.id.updateValues);
@@ -120,28 +132,6 @@ public class BaseScreen extends Activity {
 				}
 			});
 		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
-	}
-	
-	// Parse the string returned by Arduino
-	//   Grab return value after '='
-	private String arduinoReturnParse(String read) throws IOException {
-		// Turn into stream
-		InputStream is = new ByteArrayInputStream(read.getBytes());
-		char c = '\0';
-		// Iterate through until '='
-		while(is.available() > 0 && c != '=') {
-			c = Character.toChars(is.read())[0];
-		}
-		// Skip the '='
-		is.skip(1);
-		String val = "";
-		// Grab until end of number
-		while(is.available() > 0 && c != ' ' && c != '\n' && c != '\r') {
-			val += c;
-			c = Character.toChars(is.read())[0];
-		}
-		
-		return val;
 	}
 
 	private final Handler mHandler = new Handler() {
@@ -169,15 +159,7 @@ public class BaseScreen extends Activity {
                 byte[] readBuf = (byte[]) msg.obj;
                 // construct a string from the valid bytes in the buffer
                 String readMessage = new String(readBuf, 0, msg.arg1);
-                String value = "";
-                int Ivalue = 0;
-                // Parse returned string for sensor value. Led by '='
-                Ivalue = WS.weather().get(0).getMaxTemp();
-                try {
-					value = new String(arduinoReturnParse(readMessage));
-					tempCurr.setText(value);
-				} catch (IOException e) {}
-                tempCurr.setText(Ivalue);
+                tempCurr.setText(readMessage);
                 break;
 			case MESSAGE_DEVICE_NAME:
 				// save the connected device's name
@@ -284,7 +266,7 @@ public class BaseScreen extends Activity {
 			}
 		}
 	}
-
+	
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

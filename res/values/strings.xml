@@ -26,5 +26,6 @@
     <string name="title_connected_to">connected: </string>
     <string name="title_not_connected">not connected!</string>
     <string name="update_values">Update</string>
+    <string name="update_service_values">Web Update</string>
 
 </resources>
