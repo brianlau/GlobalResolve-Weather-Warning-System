@@ -64,6 +64,8 @@ public class BaseScreen extends Activity {
 	private WeatherService WS;
 	private ImageView risk;
 
+	public boolean weatherFlag = false;
+	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -132,7 +134,12 @@ public class BaseScreen extends Activity {
 					WS = new WeatherService();
 				}
 				try {
+					if(weatherFlag == false)
+					{
 					WeatherList = WS.execute().get();
+					weatherFlag = true;
+					}
+					
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				} catch (ExecutionException e) {

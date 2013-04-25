@@ -19,15 +19,25 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import com.google.android.gms.maps.model.LatLng;
 import android.os.AsyncTask;
+import android.os.Bundle;
 
-public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>>{
+public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>> implements LocationListener{
 
 	public static final String URL_SOURCE =
 			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
 
 	public ArrayList<Weather> weather() 
 	{
+		//LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE); 
+		//Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		//double longitude = location.getLongitude();
+		//double latitude = location.getLatitude();
 		/*** Create the request ***/
 		// Let's pick a location:
 		String location = "accra";
@@ -77,5 +87,29 @@ public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>>{
 	@Override
 	protected ArrayList<Weather> doInBackground(Void... params) {
 		return weather();
+	}
+
+	@Override
+	public void onLocationChanged(Location location) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderDisabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onProviderEnabled(String provider) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+		// TODO Auto-generated method stub
+		
 	}
 }
