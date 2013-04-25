@@ -84,6 +84,7 @@ public class BaseScreen extends Activity {
 	public void onStart() {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
+		setupServiceConnection();
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
