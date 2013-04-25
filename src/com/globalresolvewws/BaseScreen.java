@@ -71,7 +71,6 @@ public class BaseScreen extends Activity {
 		setContentView(R.layout.activity_main);
 		serviceValue = (TextView) findViewById(R.id.temp_service);
 		tempCurr = (TextView) findViewById(R.id.temp_curr);
-		
 
 		// Bluetooth adapter
 		mbtA = BluetoothAdapter.getDefaultAdapter();
@@ -117,6 +116,10 @@ public class BaseScreen extends Activity {
 		sUpdateButton.setOnClickListener(new OnClickListener() {
 			public void onClick(final View view)
 			{
+				if(WS == null)
+				{
+					WS = new WeatherService();
+				}
 				WeatherList = WS.weather();
 				serviceValue.setText(WeatherList.get(0).getMaxTemp());
 			}
