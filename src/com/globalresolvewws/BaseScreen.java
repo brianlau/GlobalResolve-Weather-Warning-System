@@ -96,7 +96,6 @@ public class BaseScreen extends Activity {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
 		setupServiceConnection();
-		risk.setBackgroundColor(Color.BLACK);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
