@@ -149,16 +149,56 @@ public class BaseScreen extends Activity {
 						+ "\n" + String.valueOf(WeatherList.get(3).getTime())
 						+ " Risk: "
 						+ String.valueOf(quickDirtyRisk(WeatherList.get(3))));
+				switch (quickDirtyRisk(WeatherList.get(0))) {
+				case 1:
+					risk.setBackgroundColor(Color.parseColor("#00CED1"));
+					break;
+				case 2:
+					risk.setBackgroundColor(Color.parseColor("#00FA9A"));
+					break;
+				case 3:
+					risk.setBackgroundColor(Color.parseColor("#00FF00"));
+					break;
+				case 4:
+					risk.setBackgroundColor(Color.parseColor("#7CFC00"));
+					break;
+				case 5:
+					risk.setBackgroundColor(Color.parseColor("#9ACD32"));
+					break;
+				case 6:
+					risk.setBackgroundColor(Color.parseColor("#FFFF00"));
+					break;
+				case 7:
+					risk.setBackgroundColor(Color.parseColor("#FFA500"));
+					break;
+				case 8:
+					risk.setBackgroundColor(Color.parseColor("#FF4500"));
+					break;
+				case 9:
+					risk.setBackgroundColor(Color.parseColor("#FF0000"));
+					break;
+				case 10:
+					risk.setBackgroundColor(Color.parseColor("#FF0000"));
+					break;
+				}
 			}
 		});
 	}
 
-	private int quickDirtyRisk(Weather oneDay)
-	{
+	private int quickDirtyRisk(Weather oneDay) {
 		RiskModel rm = new RiskModel();
-		return rm.calculateRiskForProvidedDay(90, 60, 80, oneDay);	//currently sets risk to higher for a day over 90 degrees, below 60, or with a humidity over 80
+		return rm.calculateRiskForProvidedDay(90, 60, 80, oneDay); // currently
+																	// sets risk
+																	// to higher
+																	// for a day
+																	// over 90
+																	// degrees,
+																	// below 60,
+																	// or with a
+																	// humidity
+																	// over 80
 	}
-	
+
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
 		mUpdateButton = (Button) findViewById(R.id.updateValues);
