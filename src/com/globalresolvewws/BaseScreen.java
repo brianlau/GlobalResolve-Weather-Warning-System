@@ -52,6 +52,7 @@ public class BaseScreen extends Activity {
 	private Button mUpdateButton;
 	private Button sUpdateButton;
 	private TextView tempCurr;
+	private TextView serviceValue;
 	private WeatherService WS;
 
 	@Override
@@ -62,12 +63,12 @@ public class BaseScreen extends Activity {
 		setContentView(R.layout.main);
 		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE,
 				R.layout.custom_title);
-
 		// Set up the custom title
 		mTitle = (TextView) findViewById(R.id.title_left_text);
 		mTitle.setText(R.string.app_name);
 		mTitle = (TextView) findViewById(R.id.title_right_text);
 		setContentView(R.layout.activity_main);
+		serviceValue = (TextView) findViewById(R.id.temp_service);
 		tempCurr = (TextView) findViewById(R.id.temp_curr);
 		
 
@@ -83,7 +84,6 @@ public class BaseScreen extends Activity {
 	public void onStart() {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
-		final Button btnServiceRefresh = (Button) findViewById(R.id.updateServiceValues);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -116,6 +116,7 @@ public class BaseScreen extends Activity {
 			public void onClick(final View view)
 			{
 				WS.weather();
+				serviceValue.setText(WS.weather().get(0).getMaxTemp());
 			}
 		});
 	}
