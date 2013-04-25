@@ -1,6 +1,8 @@
 package com.globalresolvewws;
 
 import java.nio.charset.Charset;
+import java.io.*;
+import java.lang.Character;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -117,6 +119,28 @@ public class BaseScreen extends Activity {
 			});
 		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
 	}
+	
+	// Parse the string returned by Arduino
+	//   Grab return value after '='
+	private String arduinoReturnParse(String read) throws IOException {
+		// Turn into stream
+		InputStream is = new ByteArrayInputStream(read.getBytes());
+		char c = '\0';
+		// Iterate through until '='
+		while(is.available() > 0 && c != '=') {
+			c = Character.toChars(is.read())[0];
+		}
+		// Skip the '='
+		is.skip(1);
+		String val = "";
+		// Grab until end of number
+		while(is.available() > 0 && c != ' ' && c != '\n' && c != '\r') {
+			val += c;
+			c = Character.toChars(is.read())[0];
+		}
+		
+		return val;
+	}
 
 	private final Handler mHandler = new Handler() {
 		@Override
@@ -143,7 +167,12 @@ public class BaseScreen extends Activity {
                 byte[] readBuf = (byte[]) msg.obj;
                 // construct a string from the valid bytes in the buffer
                 String readMessage = new String(readBuf, 0, msg.arg1);
-                tempCurr.setText(readMessage);
+                String value = "";
+                // Parse returned string for sensor value. Led by '='
+                try {
+					value = new String(arduinoReturnParse(readMessage));
+				} catch (IOException e) {}
+                tempCurr.setText(value);
                 break;
 			case MESSAGE_DEVICE_NAME:
 				// save the connected device's name
