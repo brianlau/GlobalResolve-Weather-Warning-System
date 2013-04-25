@@ -16,6 +16,16 @@
         android:gravity="center" />
 
     <TextView
+        android:id="@+id/temp_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="30sp" 
+        android:text="current temp:"/>
+    
+    <TextView
         android:id="@+id/temp_curr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

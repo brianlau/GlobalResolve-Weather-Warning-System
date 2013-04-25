@@ -26,7 +26,7 @@ import android.bluetooth.*;
 public class BaseScreen extends Activity {
 	// Debugging
 	private static final String TAG = "Weather Warning";
-
+	
 	// Message types sent from the BluetoothChatService Handler
 	public static final int MESSAGE_STATE_CHANGE = 1;
 	public static final int MESSAGE_READ = 2;
@@ -49,6 +49,8 @@ public class BaseScreen extends Activity {
 	// Member object for the chat services
 	private BluetoothConnectionHandler mConnectionHandler = null;
 
+	
+	private WeatherService WS;
 	private TextView mTitle;
 	private Button mUpdateButton;
 	private TextView tempCurr;
@@ -168,11 +170,14 @@ public class BaseScreen extends Activity {
                 // construct a string from the valid bytes in the buffer
                 String readMessage = new String(readBuf, 0, msg.arg1);
                 String value = "";
+                int Ivalue = 0;
                 // Parse returned string for sensor value. Led by '='
+                Ivalue = WS.weather().get(0).getMaxTemp();
                 try {
 					value = new String(arduinoReturnParse(readMessage));
+					tempCurr.setText(value);
 				} catch (IOException e) {}
-                tempCurr.setText(value);
+                tempCurr.setText(Ivalue);
                 break;
 			case MESSAGE_DEVICE_NAME:
 				// save the connected device's name
