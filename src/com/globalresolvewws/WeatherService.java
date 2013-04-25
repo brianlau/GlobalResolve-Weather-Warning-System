@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -42,10 +44,13 @@ public class WeatherService extends AsyncTask<String, Void, ArrayList<Weather>>{
 			// Turn the string into a URL object
 			URL urlObject = new URL(query);
 			// Open the stream (which returns an InputStream):
-		//	if(urlObject == null)
-		//	{
-		//		weather("Accra");
-		//	}
+			String header = urlObject.openConnection().getHeaderField(null);
+			if(header.equalsIgnoreCase("HTTP/1.1 400 Bad Request"))
+			{
+				query = URL_SOURCE + "Accra";
+				query = query.replace(" ","%20");
+				urlObject = new URL(query);
+			}
 			InputStream in = urlObject.openStream();
 			
 			
