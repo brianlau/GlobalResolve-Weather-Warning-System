@@ -53,6 +53,7 @@ public class BaseScreen extends Activity {
 	private Button sUpdateButton;
 	private TextView tempCurr;
 	private TextView serviceValue;
+	private ArrayList<Weather> WeatherList;
 	private WeatherService WS;
 
 	@Override
@@ -116,8 +117,8 @@ public class BaseScreen extends Activity {
 		sUpdateButton.setOnClickListener(new OnClickListener() {
 			public void onClick(final View view)
 			{
-				WS.weather();
-				serviceValue.setText(WS.weather().get(0).getMaxTemp());
+				WeatherList = WS.weather();
+				serviceValue.setText(WeatherList.get(0).getMaxTemp());
 			}
 		});
 	}

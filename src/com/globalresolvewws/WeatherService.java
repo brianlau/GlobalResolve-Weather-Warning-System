@@ -45,25 +45,30 @@ public class WeatherService {
 		/** Now parse the data (the stream) that we received back ***/
 
 			// Create an XML reader
-			XMLReader xr = XMLReaderFactory.createXMLReader();
-
-			// Tell that XML reader to use our special Handler
-			ServiceHandler ourSpecialHandler = new ServiceHandler();
-			xr.setContentHandler(ourSpecialHandler);
-			
-			// We have an InputStream, but let's just wrap it in
-			//  an InputSource (the SAX parser likes it that way)
-			InputSource inSource = new InputSource(in);
-			
-			//System.out.print(inSource);
-			// And parse it!
-			xr.parse(inSource);
-			return ourSpecialHandler.forecast;
+			XMLReader xr = null;
+			System.setProperty("org.xml.sax.driver","org.xmlpull.v1.sax2.Driver"); 
+			try
+			{
+				xr = XMLReaderFactory.createXMLReader();
+				// Tell that XML reader to use our special Handler
+				ServiceHandler ourSpecialHandler = new ServiceHandler();
+				xr.setContentHandler(ourSpecialHandler);
+				
+				// We have an InputStream, but let's just wrap it in
+				//  an InputSource (the SAX parser likes it that way)
+				InputSource inSource = new InputSource(in);
+				
+				//System.out.print(inSource);
+				// And parse it!
+				xr.parse(inSource);
+				return ourSpecialHandler.forecast;
+			}
+			catch (SAXException se) {
+				se.printStackTrace();
+			}
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
-		} catch (SAXException se) {
-			se.printStackTrace();
-		}
+		} 
 		return null;
 	}
 }
