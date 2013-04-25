@@ -1,26 +1,30 @@
 package com.globalresolvewws;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Intent;
 import android.util.Config;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.bluetooth.*;
 
 public class BaseScreen extends Activity {
 	// Debugging
@@ -101,44 +105,76 @@ public class BaseScreen extends Activity {
 		if (mbtA == null) {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
-		} if (!mbtA.isEnabled()) {
-            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
-        // Otherwise, setup the chat session
-        } else {
-            if (mConnectionHandler == null) setupConnection();
-        }
+		}
+		if (!mbtA.isEnabled()) {
+			Intent enableIntent = new Intent(
+					BluetoothAdapter.ACTION_REQUEST_ENABLE);
+			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
+			// Otherwise, setup the chat session
+		} else {
+			if (mConnectionHandler == null)
+				setupConnection();
+		}
 	}
 
 	private void setupServiceConnection() {
-		//Start the service
+		// Start the service
 		sUpdateButton = (Button) findViewById(R.id.updateServiceValues);
 		sUpdateButton.setOnClickListener(new OnClickListener() {
-			public void onClick(final View view)
-			{
-				if(WS == null)
-				{
+			public void onClick(final View view) {
+				if (WS == null) {
 					WS = new WeatherService();
 				}
 				WeatherList = WS.weather();
-				serviceValue.setText("Current Temp: " + String.valueOf(WeatherList.get(0).getMaxTemp()) +"\n" +
-						String.valueOf(WeatherList.get(1).getTime()));
+				serviceValue.setText("Current Temp: "
+						+ String.valueOf(WeatherList.get(0).getMaxTemp())
+						+ "\n" + String.valueOf(WeatherList.get(1).getTime())
+						+ " Temp: "
+						+ String.valueOf(WeatherList.get(1).getMaxTemp())
+						+ "\n" + String.valueOf(WeatherList.get(2).getTime())
+						+ " Temp: "
+						+ String.valueOf(WeatherList.get(2).getMaxTemp())
+						+ "\n" + String.valueOf(WeatherList.get(3).getTime())
+						+ " Temp: "
+						+ String.valueOf(WeatherList.get(3).getMaxTemp()));
 			}
 		});
 	}
-	
-	
+
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
-			mUpdateButton = (Button) findViewById(R.id.updateValues);
-			mUpdateButton.setOnClickListener(new OnClickListener() {
-				private String message;
-				public void onClick(final View view) {
-					message = "t";
-					sendMessage(message);
-				}
-			});
+		mUpdateButton = (Button) findViewById(R.id.updateValues);
+		mUpdateButton.setOnClickListener(new OnClickListener() {
+			private String message;
+
+			public void onClick(final View view) {
+				message = "t";
+				sendMessage(message);
+			}
+		});
 		mConnectionHandler = new BluetoothConnectionHandler(this, mHandler);
+	}
+
+	// Parse the string returned by Arduino
+	// Grab return value after '='
+	private String arduinoReturnParse(String read) throws IOException {
+		// Turn into stream
+		InputStream is = new ByteArrayInputStream(read.getBytes());
+		char c = '\0';
+		// Iterate through until '='
+		while (is.available() > 0 && c != '=') {
+			c = Character.toChars(is.read())[0];
+		}
+		// Skip the '='
+		is.skip(1);
+		String val = "";
+		// Grab until end of number
+		while (is.available() > 0 && c != ' ' && c != '\n' && c != '\r') {
+			val += c;
+			c = Character.toChars(is.read())[0];
+		}
+
+		return val;
 	}
 
 	private final Handler mHandler = new Handler() {
@@ -162,12 +198,18 @@ public class BaseScreen extends Activity {
 					break;
 				}
 				break;
-            case MESSAGE_READ:
-                byte[] readBuf = (byte[]) msg.obj;
-                // construct a string from the valid bytes in the buffer
-                String readMessage = new String(readBuf, 0, msg.arg1);
-                tempCurr.setText(readMessage);
-                break;
+			case MESSAGE_READ:
+				byte[] readBuf = (byte[]) msg.obj;
+				// construct a string from the valid bytes in the buffer
+				String readMessage = new String(readBuf, 0, msg.arg1);
+				String value = "";
+				// Parse returned string for sensor value. Led by '='
+				try {
+					value = new String(arduinoReturnParse(readMessage));
+				} catch (IOException e) {
+				}
+				tempCurr.setText(value);
+				break;
 			case MESSAGE_DEVICE_NAME:
 				// save the connected device's name
 				mConnectedDeviceName = msg.getData().getString(DEVICE_NAME);
@@ -248,8 +290,7 @@ public class BaseScreen extends Activity {
 	}
 
 	@Override
-	public void onActivityResult(int requestCode, int resultCode,
-			  Intent data) {
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == REQUEST_CONNECT_DEVICE) {
 			// When DeviceListActivity returns with a device to connect
 			if (resultCode == Activity.RESULT_OK) {
@@ -273,7 +314,7 @@ public class BaseScreen extends Activity {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
