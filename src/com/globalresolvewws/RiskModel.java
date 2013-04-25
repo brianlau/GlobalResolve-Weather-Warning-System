@@ -63,6 +63,24 @@ public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAd
 	}
 }
 
+public int calculateRiskForProvidedDay(int alarmHigh, int alarmLow, int alarmHumid, Weather dayToConsider)
+{
+	setBaseRisk();
+	if(dayToConsider.getMaxTemp() > alarmHigh)
+	{
+		adders++;
+	}
+	if(dayToConsider.getMinTemp() < alarmLow)
+	{
+		adders++;
+	}
+	if(dayToConsider.getHumidity() > alarmHumid)
+	{
+		adders++;
+	}
+	return getRisk();
+}
+
 public void setBaseRisk()
 {
 	currentRisk = 5;

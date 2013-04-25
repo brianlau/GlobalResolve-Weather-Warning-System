@@ -27,6 +27,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
  
     private static GoogleMap googleMap;
     private static LatLng currLocation;
+    public double speedParam = 4.5;
  
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
  
             // Getting Current Location
             Location location = locationManager.getLastKnownLocation(provider);
- 
+            
             if(location!=null){
                 onLocationChanged(location);
             }
@@ -81,7 +82,7 @@ public class MapScreen extends FragmentActivity implements LocationListener {
 					
 					double calc = calculationByDistance(currLocation, point);
 					
-					mMarkerOptions.title(Double.valueOf(calc) + "km");
+					mMarkerOptions.title("Distance: " + Double.valueOf(calc) + "km " + " Estimated time: " + Double.valueOf(calc) * speedParam + " Minutes");
 					
 					googleMap.clear();
 					

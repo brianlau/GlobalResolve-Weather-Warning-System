@@ -131,21 +131,27 @@ public class BaseScreen extends Activity {
 					WS = new WeatherService();
 				}
 				WeatherList = WS.weather();
-				serviceValue.setText("Current Temp: "
-						+ String.valueOf(WeatherList.get(0).getMaxTemp())
+				serviceValue.setText("Current Risk(1-10): "
+						+ String.valueOf(quickDirtyRisk(WeatherList.get(0)))
 						+ "\n" + String.valueOf(WeatherList.get(1).getTime())
 						+ " Temp: "
-						+ String.valueOf(WeatherList.get(1).getMaxTemp())
+						+ String.valueOf(quickDirtyRisk(WeatherList.get(1)))
 						+ "\n" + String.valueOf(WeatherList.get(2).getTime())
 						+ " Temp: "
-						+ String.valueOf(WeatherList.get(2).getMaxTemp())
+						+ String.valueOf(quickDirtyRisk(WeatherList.get(2)))
 						+ "\n" + String.valueOf(WeatherList.get(3).getTime())
 						+ " Temp: "
-						+ String.valueOf(WeatherList.get(3).getMaxTemp()));
+						+ String.valueOf(quickDirtyRisk(WeatherList.get(3))));
 			}
 		});
 	}
 
+	private int quickDirtyRisk(Weather oneDay)
+	{
+		RiskModel rm = new RiskModel();
+		return rm.calculateRiskForProvidedDay(90, 60, 80, oneDay);	//currently sets risk to higher for a day over 90 degrees, below 60, or with a humidity over 80
+	}
+	
 	private void setupConnection() {
 		// Initialize the BluetoothChatService to perform bluetooth connections
 		mUpdateButton = (Button) findViewById(R.id.updateValues);
