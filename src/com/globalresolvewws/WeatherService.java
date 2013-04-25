@@ -42,7 +42,10 @@ public class WeatherService extends AsyncTask<String, Void, ArrayList<Weather>>{
 			// Turn the string into a URL object
 			URL urlObject = new URL(query);
 			// Open the stream (which returns an InputStream):
-			//if(urlObject.)
+		//	if(urlObject == null)
+		//	{
+		//		weather("Accra");
+		//	}
 			InputStream in = urlObject.openStream();
 			
 			
@@ -66,10 +69,6 @@ public class WeatherService extends AsyncTask<String, Void, ArrayList<Weather>>{
 				//System.out.print(inSource);
 				// And parse it!
 				xr.parse(inSource);
-				if(ourSpecialHandler.forecast == null)
-				{
-					weather("Accra");						//if there is no weather data for the lat long default to Accra and pull again
-				}
 				return ourSpecialHandler.forecast;
 			}
 			catch (SAXException se) {
