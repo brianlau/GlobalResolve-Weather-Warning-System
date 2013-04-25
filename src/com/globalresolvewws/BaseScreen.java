@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,6 +61,7 @@ public class BaseScreen extends Activity {
 	private TextView serviceValue;
 	private ArrayList<Weather> WeatherList;
 	private WeatherService WS;
+	private ImageView risk;
 
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
@@ -75,6 +78,7 @@ public class BaseScreen extends Activity {
 		setContentView(R.layout.activity_main);
 		serviceValue = (TextView) findViewById(R.id.temp_service);
 		tempCurr = (TextView) findViewById(R.id.temp_curr);
+		risk = (ImageView) findViewById(R.id.imageView);
 
 		// Bluetooth adapter
 		mbtA = BluetoothAdapter.getDefaultAdapter();
@@ -89,6 +93,7 @@ public class BaseScreen extends Activity {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
 		setupServiceConnection();
+		risk.setBackgroundColor(Color.BLACK);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
