@@ -121,7 +121,8 @@ public class BaseScreen extends Activity {
 					WS = new WeatherService();
 				}
 				WeatherList = WS.weather();
-				serviceValue.setText(WeatherList.get(0).getMaxTemp());
+				serviceValue.setText("Current Temp: " + String.valueOf(WeatherList.get(0).getMaxTemp()) +"\n" +
+						String.valueOf(WeatherList.get(1).getTime()));
 			}
 		});
 	}

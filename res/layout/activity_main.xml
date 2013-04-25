@@ -24,8 +24,7 @@
         android:focusable="true"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="30sp" 
-        android:text="current temp:"/>
+        android:textSize="30sp" />
     
     <TextView
         android:id="@+id/temp_curr"
