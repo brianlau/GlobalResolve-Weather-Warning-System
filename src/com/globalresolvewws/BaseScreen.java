@@ -13,6 +13,8 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -96,7 +98,6 @@ public class BaseScreen extends Activity {
 		super.onStart();
 		final Button btnMapView = (Button) findViewById(R.id.buttonMapView);
 		setupServiceConnection();
-		risk.setBackgroundColor(Color.BLACK);
 		btnMapView.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -125,6 +126,31 @@ public class BaseScreen extends Activity {
 		}
 	}
 
+	public String getLatLongValues()
+	{
+		LocationManager lm = (LocationManager)getSystemService(LOCATION_SERVICE); 
+		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		String longitude = cleanValues(Double.toString(location.getLongitude()));
+		String latitude = cleanValues(Double.toString(location.getLatitude()));
+		
+		
+		
+		return latitude + "," + longitude;
+	}
+	
+	public String cleanValues(String l)
+	{
+		l = l.replace(".", "");
+		while(l.length() < 9)
+			l = l.concat("0");
+		if(l.contains("-"))
+			l = l.substring(0, 9);
+		else
+			l = l.substring(0, 8);
+		
+		return l;
+	}
+	
 	private void setupServiceConnection() {
 		// Start the service
 		sUpdateButton = (Button) findViewById(R.id.updateServiceValues);
@@ -136,7 +162,7 @@ public class BaseScreen extends Activity {
 				try {
 					if(weatherFlag == false)
 					{
-					WeatherList = WS.execute().get();
+					WeatherList = WS.execute(getLatLongValues()).get();
 					weatherFlag = true;
 					}
 					

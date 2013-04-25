@@ -45,10 +45,10 @@ public int getRisk()
 	return currentRisk + adders - subtractors;
 }
 
-public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAdder)
+public void calculateRisk(int alarmHigh, int alarmLow, int alarmHumid, int dayAdder, String LatLong)
 {
 	WeatherService WS = new WeatherService();
-	Weather dayToConsider = WS.weather().get(dayAdder);
+	Weather dayToConsider = WS.weather(LatLong).get(dayAdder);
 	if(dayToConsider.getMaxTemp() > alarmHigh)
 	{
 		adders++;

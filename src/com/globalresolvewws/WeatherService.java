@@ -18,29 +18,19 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
-
-import android.content.Context;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import com.google.android.gms.maps.model.LatLng;
 import android.os.AsyncTask;
-import android.os.Bundle;
 
-public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>> implements LocationListener{
 
-	public static final String URL_SOURCE =
-			"http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
+public class WeatherService extends AsyncTask<String, Void, ArrayList<Weather>>{
 
-	public ArrayList<Weather> weather() 
+	public static final String URL_SOURCE = "http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=";
+	public static final String URL_BACKUP_SOURCE = "http://api.previmeteo.com/e240a3071ce76b3930492e637bd3f326/ig/api?weather=Accra";
+
+	public ArrayList<Weather> weather(String LatLong) 
 	{
-		//LocationManager lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE); 
-		//Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-		//double longitude = location.getLongitude();
-		//double latitude = location.getLatitude();
 		/*** Create the request ***/
 		// Let's pick a location:
-		String location = "accra";
+		String location = LatLong;
 		// Create the URL:
 		String query = URL_SOURCE + location;
 		// Replace blanks with HTML-Equivalent:
@@ -52,7 +42,10 @@ public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>> im
 			// Turn the string into a URL object
 			URL urlObject = new URL(query);
 			// Open the stream (which returns an InputStream):
+			//if(urlObject.)
 			InputStream in = urlObject.openStream();
+			
+			
 
 		/** Now parse the data (the stream) that we received back ***/
 
@@ -73,6 +66,10 @@ public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>> im
 				//System.out.print(inSource);
 				// And parse it!
 				xr.parse(inSource);
+				if(ourSpecialHandler.forecast == null)
+				{
+					weather("Accra");						//if there is no weather data for the lat long default to Accra and pull again
+				}
 				return ourSpecialHandler.forecast;
 			}
 			catch (SAXException se) {
@@ -84,32 +81,9 @@ public class WeatherService extends AsyncTask<Void, Void, ArrayList<Weather>> im
 		return null;
 	}
 
-	@Override
-	protected ArrayList<Weather> doInBackground(Void... params) {
-		return weather();
-	}
 
 	@Override
-	public void onLocationChanged(Location location) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onProviderDisabled(String provider) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onProviderEnabled(String provider) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onStatusChanged(String provider, int status, Bundle extras) {
-		// TODO Auto-generated method stub
-		
+	protected ArrayList<Weather> doInBackground(String... LatLong) {
+		return weather(LatLong[0]);
 	}
 }

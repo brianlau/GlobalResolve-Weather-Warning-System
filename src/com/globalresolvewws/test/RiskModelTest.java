@@ -16,7 +16,7 @@ public class RiskModelTest extends AndroidTestCase {
 	public void test() {
 		RiskModel RM = new RiskModel();
 		// should catch some alarms
-		RM.calculateRisk(70, 60, 70, 0);
+		RM.calculateRisk(70, 60, 70, 0, "4550000,-7358300");
 		RM.checkForAlarm();
 		assertEquals(RM.checkForAlarm(), alarmEnum.MEDIUM);
 		RM.setCurrentRisk(1);
