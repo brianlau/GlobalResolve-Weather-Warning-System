@@ -23,6 +23,7 @@ public class BaseScreenTest extends
 	private BaseScreen mActivity = null;
 	private ImageView mImageView = null;
 	private TextView mTextView = null;
+	private TextView mTextView2 = null;
 	private Button mMapViewButton = null;
 
 	public BaseScreenTest() {
@@ -41,10 +42,12 @@ public class BaseScreenTest extends
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
 		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
+		mTextView2 = (TextView) mActivity.findViewById(com.globalresolvewws.R.id.temp_service);
 		assertNotNull("Should Not Be Null",mActivity);
 		assertNotNull("Should not be null",mImageView);
 		assertNotNull("Should not be null",mTextView);
 		assertNotNull("Should not be null",mMapViewButton);
+		assertNotNull("Should not be null",mTextView2);
 	}
 	
 	@UiThreadTest

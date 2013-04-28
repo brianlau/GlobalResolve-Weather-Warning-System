@@ -115,7 +115,7 @@ public class BaseScreen extends Activity {
 			Toast.makeText(this, "Bluetooth not supported with this device",
 					Toast.LENGTH_LONG).show();
 		}
-		if (!mbtA.isEnabled()) {
+		else if (!mbtA.isEnabled()) {
 			Intent enableIntent = new Intent(
 					BluetoothAdapter.ACTION_REQUEST_ENABLE);
 			startActivityForResult(enableIntent, REQUEST_ENABLE_BT);
