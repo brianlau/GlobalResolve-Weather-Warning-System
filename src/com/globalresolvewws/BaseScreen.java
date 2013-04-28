@@ -258,6 +258,7 @@ public class BaseScreen extends Activity {
 		}
 		// Skip the '='
 		is.skip(1);
+		//while(is.read() != '=');
 		String val = "";
 		// Grab until end of number
 		while (is.available() > 0 && c != ' ' && c != '\n' && c != '\r') {

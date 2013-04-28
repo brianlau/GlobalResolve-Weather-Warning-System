@@ -24,7 +24,7 @@ public class BaseScreenTest extends
 	private ImageView mImageView = null;
 	private TextView mTextView = null;
 	private TextView mTextView2 = null;
-	private Button mMapViewButton = null;
+	private Button mMapViewButton = null;	private Button mUpdateValuesButton = null;	private Button mUpdateServiceValuesButton = null;
 
 	public BaseScreenTest() {
 		super("com.globalresovlewws", BaseScreen.class);
@@ -42,11 +42,15 @@ public class BaseScreenTest extends
 		mTextView = (TextView) mActivity
 				.findViewById(com.globalresolvewws.R.id.temp_curr);
 		mMapViewButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.buttonMapView);
+		mUpdateValuesButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.updateValues);
+		mUpdateServiceValuesButton = (Button) mActivity.findViewById(com.globalresolvewws.R.id.updateServiceValues);
 		mTextView2 = (TextView) mActivity.findViewById(com.globalresolvewws.R.id.temp_service);
 		assertNotNull("Should Not Be Null",mActivity);
 		assertNotNull("Should not be null",mImageView);
 		assertNotNull("Should not be null",mTextView);
 		assertNotNull("Should not be null",mMapViewButton);
+		assertNotNull("Should not be null",mUpdateValuesButton);
+		assertNotNull("Should not be null",mUpdateServiceValuesButton);
 		assertNotNull("Should not be null",mTextView2);
 	}
 	
@@ -55,6 +59,8 @@ public class BaseScreenTest extends
 		mActivity.runOnUiThread(new Runnable() {
 			public void run() {
 				mMapViewButton.requestFocus();
+				mUpdateValuesButton.requestFocus();
+				mUpdateServiceValuesButton.requestFocus();
 
 			}
 		});
